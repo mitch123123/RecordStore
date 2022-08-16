@@ -50,7 +50,7 @@
             this.DatePicker = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.DescriptionBox = new System.Windows.Forms.ListBox();
+            this.DescriptionBox = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -87,9 +87,10 @@
             this.MoviesList.ItemHeight = 41;
             this.MoviesList.Location = new System.Drawing.Point(34, 268);
             this.MoviesList.Name = "MoviesList";
-            this.MoviesList.Size = new System.Drawing.Size(1039, 660);
+            this.MoviesList.Size = new System.Drawing.Size(1188, 660);
             this.MoviesList.TabIndex = 3;
             this.MoviesList.SelectedIndexChanged += new System.EventHandler(this.MoviesList_SelectedIndexChanged);
+            this.MoviesList.Format += new System.Windows.Forms.ListControlConvertEventHandler(this.MoviesList_Format);
             this.MoviesList.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.MoviesList_MouseDoubleClick);
             // 
             // PopularBtn
@@ -144,7 +145,7 @@
             // 
             // AddCartBtn
             // 
-            this.AddCartBtn.Location = new System.Drawing.Point(1092, 722);
+            this.AddCartBtn.Location = new System.Drawing.Point(1300, 723);
             this.AddCartBtn.Name = "AddCartBtn";
             this.AddCartBtn.Size = new System.Drawing.Size(188, 58);
             this.AddCartBtn.TabIndex = 7;
@@ -164,7 +165,7 @@
             // 
             // RemoveFromCartBtn
             // 
-            this.RemoveFromCartBtn.Location = new System.Drawing.Point(1552, 736);
+            this.RemoveFromCartBtn.Location = new System.Drawing.Point(1760, 737);
             this.RemoveFromCartBtn.Name = "RemoveFromCartBtn";
             this.RemoveFromCartBtn.Size = new System.Drawing.Size(318, 77);
             this.RemoveFromCartBtn.TabIndex = 9;
@@ -176,7 +177,7 @@
             // 
             this.CartList.FormattingEnabled = true;
             this.CartList.ItemHeight = 41;
-            this.CartList.Location = new System.Drawing.Point(1554, 319);
+            this.CartList.Location = new System.Drawing.Point(1762, 320);
             this.CartList.Name = "CartList";
             this.CartList.Size = new System.Drawing.Size(318, 414);
             this.CartList.TabIndex = 10;
@@ -184,7 +185,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(1554, 268);
+            this.label3.Location = new System.Drawing.Point(1762, 269);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(67, 41);
             this.label3.TabIndex = 11;
@@ -204,7 +205,7 @@
             // ThumbnailLbl
             // 
             this.ThumbnailLbl.AutoSize = true;
-            this.ThumbnailLbl.Location = new System.Drawing.Point(1092, 275);
+            this.ThumbnailLbl.Location = new System.Drawing.Point(1265, 260);
             this.ThumbnailLbl.Name = "ThumbnailLbl";
             this.ThumbnailLbl.Size = new System.Drawing.Size(0, 41);
             this.ThumbnailLbl.TabIndex = 14;
@@ -267,18 +268,17 @@
             // 
             // DescriptionBox
             // 
-            this.DescriptionBox.FormattingEnabled = true;
-            this.DescriptionBox.ItemHeight = 41;
-            this.DescriptionBox.Location = new System.Drawing.Point(1079, 310);
+            this.DescriptionBox.AutoSize = true;
+            this.DescriptionBox.Location = new System.Drawing.Point(1284, 320);
             this.DescriptionBox.Name = "DescriptionBox";
-            this.DescriptionBox.Size = new System.Drawing.Size(440, 373);
+            this.DescriptionBox.Size = new System.Drawing.Size(0, 41);
             this.DescriptionBox.TabIndex = 17;
             // 
             // MovieShop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(17F, 41F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1914, 1083);
+            this.ClientSize = new System.Drawing.Size(2105, 1083);
             this.Controls.Add(this.DescriptionBox);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox2);
@@ -331,6 +331,6 @@
         private Button button1;
         private Label label5;
         private CheckedListBox GenresListbox;
-        private ListBox DescriptionBox;
+        private Label DescriptionBox;
     }
 }

@@ -25,6 +25,7 @@ namespace MovieStore.Models
         }
      public void CreateTransaction(UserDatum user,string desc, float amount)
         {
+            UserId = user.UserId;
             amount = (float)(amount + (amount * .06));
             GetNewWalletAmount(user,amount);
             GenerateTransactionNumber();
@@ -36,13 +37,13 @@ namespace MovieStore.Models
      public void GetNewWalletAmount(UserDatum user,float amount)
         {
             user.AccountBalance = user.AccountBalance - amount;
-            this.NewWalletAmount = user.AccountBalance;
+            this.NewWalletAmount = (float)user.AccountBalance;
             
         }
       public void GenerateTransactionNumber()
         {
            
-           this.TransactionNumber= new Guid();
+           this.TransactionNumber= Guid.NewGuid();
         }
         public void SetTransactionDescription(string desc)
         {

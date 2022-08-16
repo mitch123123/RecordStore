@@ -59,6 +59,7 @@
             this.CartItemList.Name = "CartItemList";
             this.CartItemList.Size = new System.Drawing.Size(561, 578);
             this.CartItemList.TabIndex = 1;
+            this.CartItemList.Format += new System.Windows.Forms.ListControlConvertEventHandler(this.CartItemList_Format);
             // 
             // label1
             // 

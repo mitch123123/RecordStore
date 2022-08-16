@@ -10,7 +10,7 @@ namespace MovieStore.Models
         public string? Password { get; set; }
         public int? Age { get; set; }
         public string? Location { get; set; }
-        public float AccountBalance { get; set; }
+        public double AccountBalance { get; set; }
       
 
     }

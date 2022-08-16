@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using MovieStore.Classes;
 
 namespace MovieStore.Models
 {
@@ -59,7 +60,6 @@ namespace MovieStore.Models
                     .HasName("PK__UserData__1788CC4CB78E14A1");
 
                 entity.Property(e => e.UserId).ValueGeneratedNever();
-
                 entity.Property(e => e.Location)
                     .HasMaxLength(50)
                     .IsUnicode(false);
@@ -71,8 +71,9 @@ namespace MovieStore.Models
                 entity.Property(e => e.Username)
                     .HasMaxLength(50)
                     .IsUnicode(false);
+               // entity.Property(e => e.AccountBalance).con
             });
-
+          
             modelBuilder.Entity<UserMovie>(entity =>
             {
                 entity.HasKey(e => e.UserId)

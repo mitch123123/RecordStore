@@ -15,20 +15,29 @@ namespace MovieStore.MovieStoreViews
     public partial class MovieShop : Form
     {
         public UserDatum user { get; set; }
-         
+       // public Dictionary<string,UserMovie> searchedMovies { get; set; }
+      
+        public List<UserMovie> searchedmovies { get; set; }
         public MovieShop(UserDatum curuser)
         {
+            user = curuser;
+            user.usercart.movies = new BindingList<UserMovie>();
             InitializeComponent();
+            ShowData();
             DatePicker.Format = DateTimePickerFormat.Custom;
             DatePicker.CustomFormat = "yyyy";
             DatePicker.ShowUpDown = true;
-            user = curuser;
-            CartList.DataSource = user.usercart.movies;
-            foreach(var genre in Genres.GetGenres())
-            {
-                GenresListbox.Items.Add(genre);
-            }
-           
+        
+            var genres = Genres.GetGenres();
+            GenresListbox.DataSource = genres;
+            GenresListbox.DisplayMember = "name";
+            //foreach (var genre in Genres.GetGenres())
+            //{
+            //    GenresListbox.Items.Add(genre.name);
+            //}
+            DescriptionBox.MaximumSize = new Size(400, 0);
+            DescriptionBox.AutoSize = true;
+
         }
         private void MoviesList_MouseDoubleClick(object sender, MouseEventArgs e)
         {
@@ -53,10 +62,12 @@ namespace MovieStore.MovieStoreViews
 
         private void AddCartBtn_Click(object sender, EventArgs e)
         {
-           
-          user.usercart.movies.Add((UserMovie)MoviesList.Items[MoviesList.SelectedIndex] );
 
-            
+            // user.usercart.movies.Add((UserMovie)MoviesList.SelectedValue );
+            user.usercart.movies.Add((UserMovie)MoviesList.Items[MoviesList.SelectedIndex]);
+            CartList.DataSource = user.usercart.movies;
+            CartList.DisplayMember = "movietitle";
+
         }
 
         private void RemoveFromCartBtn_Click(object sender, EventArgs e)
@@ -68,28 +79,59 @@ namespace MovieStore.MovieStoreViews
 
         private void SearchBtn_Click(object sender, EventArgs e)
         {
-            var searchedmovies = new List<UserMovie>();
+           // searchedMovies = new Dictionary<string, UserMovie>();
+            searchedmovies = new List<UserMovie>();
+
             if (SearchByMovieRdo.Checked)
             {
                 foreach (var movie in MovieSearch.GetMoviesByName(SearchBox.Text.ToString()))
                 {
-                    searchedmovies.Add(new UserMovie(movie));
+                    //   var keyobj = new UserMovie(movie);
+                    //   var keystring = $"Title:{keyobj.MovieTitle} | Release Date:{keyobj.ReleaseDate} | Price:{keyobj.PurchasePrice} ";
+                    //   searchedMovies.Add(keystring,keyobj);
+                       searchedmovies.Add(new UserMovie(movie));
                 }
-               
+
             }
             else
             {
                 foreach (var movie in MovieSearch.GetMoviesByName(SearchBox.Text.ToString()))
                 {
+                  
                     searchedmovies.Add(new UserMovie(movie));
                 }
             }
+            // MoviesList.DataSource = new BindingSource(searchedMovies, null);
+            // MoviesList.DisplayMember = "Key";
+            //  MoviesList.ValueMember = "Value";
             MoviesList.DataSource = searchedmovies;
+            
+
         }
 
         private void MoviesList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DescriptionBox.Items.Add(e.ToString());
+            DescriptionBox.Text = "";
+           UserMovie o= (UserMovie)MoviesList.Items[MoviesList.SelectedIndex];   
+            DescriptionBox.Text =o.MovieDesc;
+        }
+
+        private void MoviesList_Format(object sender, ListControlConvertEventArgs e)
+        {
+            string movietitle = ((UserMovie)e.ListItem).MovieTitle.ToString();
+            string releasedate = ((UserMovie)e.ListItem).ReleaseDate.ToString("MM/dd/yyyy");
+            string price = ((UserMovie)e.ListItem).PurchasePrice.ToString();
+
+
+            e.Value = $"Title:{movietitle} | Release Date:{releasedate} | Price:{price} ";
+        }
+        
+
+        private void ShowData()
+        {
+            CartList.DataSource = user.usercart.movies;
+            CartList.DisplayMember = "moviename";
+           
         }
     }
 }

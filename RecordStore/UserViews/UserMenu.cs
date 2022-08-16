@@ -1,5 +1,6 @@
 ﻿using MovieStore;
 using MovieStore.Models;
+using MovieStore.MovieStoreViews;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -56,7 +57,7 @@ namespace homework9
 
         private void ShopBtn_Click(object sender, EventArgs e)
         {
-          //  new ViewMeals(user).Show();
+            new MovieShop(user).Show();
             this.Hide();
         }
 

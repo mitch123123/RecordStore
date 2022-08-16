@@ -29,7 +29,7 @@ namespace homework9
         private void submitchangesBtn_Click(object sender, EventArgs e)
         {
             string error="";
-            user.UserId = new Guid();
+            user.UserId = Guid.NewGuid();
             user.Username = UserNameBox.Text;
             user.Password = PasswordBox.Text;
             user.AccountBalance = 500.00F;

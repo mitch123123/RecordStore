@@ -26,9 +26,9 @@ namespace MovieStore.MovieStoreViews
         private void SuccessNotice_Load(object sender, EventArgs e)
         {
             successLBL.Text = $"successful checkout {user.Username}, you have added {user.usercart.movies.Count} to your library";
-            Thread.Sleep(2000);
-            new UserMenu(user).Show();
+            Thread.Sleep(3000);          
             this.Hide();
+            new UserMenu(user).Show();
         }
     }
 }

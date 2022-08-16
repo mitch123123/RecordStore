@@ -3,11 +3,13 @@ using MovieStore.Classes;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MovieStore.Models
 {
     public partial class UserDatum
     {
+        [NotMapped]
         public Cart? usercart { get; set; }
         public static UserDatum LookupUserEF(string username, string password, out string error)
         {
@@ -18,6 +20,7 @@ namespace MovieStore.Models
                 if (context.UserData.Any(o => o.Username == username))
                 {
                     curuser = context.UserData.Where(u => u.Username == username).Where(u => u.Password == password).FirstOrDefault();
+                    curuser.usercart = new Cart();
                     if (curuser != null)
                     {
                         return curuser;
@@ -67,6 +70,7 @@ namespace MovieStore.Models
                 {
                     context.UserData.Add(user);
                     context.SaveChanges();
+                    user.usercart = new Cart();
                 }
                 return true;
             }
@@ -113,6 +117,17 @@ namespace MovieStore.Models
             }
             this.Location = fullLocation;
         }
+        public void AddMovie(UserMovie movie)
+        {
+            using(var context = new MovieDatabaseContext())
+            {
+                AccountBalance -= movie.PurchasePrice + (movie.PurchasePrice * .06);
+                context.UserMovies.Add(movie);
+                context.SaveChanges();
+            }
+        }
+        
+
         
     }
 }

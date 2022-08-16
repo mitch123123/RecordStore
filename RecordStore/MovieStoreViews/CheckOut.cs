@@ -15,16 +15,16 @@ namespace MovieStore.MovieStoreViews
     public partial class CheckOut : Form
     {
         public UserDatum user { get; set; }
-        public BankTransaction bank { get; set; }
         public CheckOut(UserDatum curuser)
         {
             InitializeComponent();
             user = curuser;
-            subtotalLbl.Text = user.usercart.CartTotal.ToString();
-            var taxamount = user.usercart.CartTotal * .06;
-            var total = taxamount + user.usercart.CartTotal;
-            taxLbl.Text = taxamount.ToString();
-            totalLbl.Text = total.ToString();
+            user.usercart.GetTotal();
+            subtotalLbl.Text = user.usercart.CartTotal.ToString("c2");
+            float taxamount = (float)(user.usercart.CartTotal * .06);
+            float total = (float)(taxamount + user.usercart.CartTotal);
+            taxLbl.Text = taxamount.ToString("c2");
+            totalLbl.Text = total.ToString("c2");
             CartItemList.DataSource = user.usercart.movies;
         }
 
@@ -36,20 +36,36 @@ namespace MovieStore.MovieStoreViews
 
         private async void CheckoutBtn_Click(object sender, EventArgs e)
         {
+            var bank = new BankTransaction();
             foreach(var item in user.usercart.movies)
             {
                 bank.CreateTransaction(user, $"purchase of {item.MovieTitle}", item.PurchasePrice);
-            if (await bank.LogTransaction())
+            if (!await bank.LogTransaction())
                 {
-                    new SuccessNotice(user).Show();
-                }
-                else
-                {
-                    errLbl.ForeColor= Color.Red;
+                    errLbl.ForeColor = Color.Red;
                     errLbl.Text = "transaction failed";
+                    break;
+
                 }
+            user.AddMovie(item);
+               
             }
-           
+            if (errLbl.Text == "")
+            {
+                user.AccountBalance -= user.usercart.CartTotal;
+                user.usercart.movies.Clear();
+                user.usercart.CartTotal = 0;
+                new SuccessNotice(user).Show();
+                this.Hide();
+            }
+        }
+
+        private void CartItemList_Format(object sender, ListControlConvertEventArgs e)
+        {
+            string movietitle = ((UserMovie)e.ListItem).MovieTitle.ToString();
+            
+            string price = ((UserMovie)e.ListItem).PurchasePrice.ToString();
+            e.Value = $"Title:{movietitle}  |  Price:{price} ";
         }
     }
 }

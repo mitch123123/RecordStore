@@ -35,7 +35,7 @@
             // successLBL
             // 
             this.successLBL.AutoSize = true;
-            this.successLBL.Location = new System.Drawing.Point(193, 98);
+            this.successLBL.Location = new System.Drawing.Point(600, 362);
             this.successLBL.Name = "successLBL";
             this.successLBL.Size = new System.Drawing.Size(347, 41);
             this.successLBL.TabIndex = 0;
@@ -44,7 +44,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(202, 278);
+            this.label2.Location = new System.Drawing.Point(609, 542);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(323, 41);
             this.label2.TabIndex = 1;
@@ -54,7 +54,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(17F, 41F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1606, 1014);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.successLBL);
             this.Name = "SuccessNotice";
