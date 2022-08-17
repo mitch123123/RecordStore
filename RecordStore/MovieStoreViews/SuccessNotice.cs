@@ -15,17 +15,19 @@ namespace MovieStore.MovieStoreViews
     public partial class SuccessNotice : Form
     {
         public UserDatum user = new UserDatum();
+        public int cartCount= 0;    
        
-       public SuccessNotice(UserDatum curuser)
+       public SuccessNotice(UserDatum curuser, int count)
         {
            
             InitializeComponent();
             user = curuser;
+            cartCount = count;
 
         }
         private void SuccessNotice_Load(object sender, EventArgs e)
         {
-            successLBL.Text = $"successful checkout {user.Username}, you have added {user.usercart.movies.Count} to your library";
+            successLBL.Text = $"successful checkout {user.Username}, you have added {cartCount} to your library";
             Thread.Sleep(3000);          
             this.Hide();
             new UserMenu(user).Show();

@@ -21,6 +21,10 @@ namespace MovieStore.Models
             {
                 ReleaseDate=DateTime.Now;
             }
+            else if (movie.release_date == "")
+            {
+                ReleaseDate = DateTime.Now;
+            }
             else
             {
                 ReleaseDate = DateTime.Parse(movie.release_date);
@@ -34,24 +38,19 @@ namespace MovieStore.Models
             }
             UserId = null;
             MovieTitle = movie.title;
-            PurchasePrice = GetPrice(movie.release_date);
+            PurchasePrice = GetPrice(ReleaseDate.ToString());
             MovieDesc = movie.overview;
-
-           
             PurchaseDate = DateTime.Now;
             //need to fix imdbid
             ImdbId = movie.id.ToString();
-            MoviesDbId = movie.id.ToString();
-            
+            MoviesDbId = movie.id.ToString();           
             Genre = genreslist; 
-
-
         }
        
         public float GetPrice(string releasedate)
         {
             DateTime release;
-           var price = 0F;   
+            var price = 0F;   
             if (releasedate != null)
             {
                  release = DateTime.Parse(releasedate);

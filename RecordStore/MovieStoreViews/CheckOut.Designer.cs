@@ -39,6 +39,8 @@
             this.taxLbl = new System.Windows.Forms.Label();
             this.totalLbl = new System.Windows.Forms.Label();
             this.errLbl = new System.Windows.Forms.Label();
+            this.RemoveBtn = new System.Windows.Forms.Button();
+            this.UserBalanceLbl = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // CheckoutBtn
@@ -57,7 +59,7 @@
             this.CartItemList.ItemHeight = 41;
             this.CartItemList.Location = new System.Drawing.Point(12, 73);
             this.CartItemList.Name = "CartItemList";
-            this.CartItemList.Size = new System.Drawing.Size(561, 578);
+            this.CartItemList.Size = new System.Drawing.Size(693, 578);
             this.CartItemList.TabIndex = 1;
             this.CartItemList.Format += new System.Windows.Forms.ListControlConvertEventHandler(this.CartItemList_Format);
             // 
@@ -99,7 +101,7 @@
             // 
             // CancelBtn
             // 
-            this.CancelBtn.Location = new System.Drawing.Point(385, 657);
+            this.CancelBtn.Location = new System.Drawing.Point(517, 657);
             this.CancelBtn.Name = "CancelBtn";
             this.CancelBtn.Size = new System.Drawing.Size(188, 58);
             this.CancelBtn.TabIndex = 6;
@@ -143,11 +145,32 @@
             this.errLbl.Size = new System.Drawing.Size(0, 41);
             this.errLbl.TabIndex = 10;
             // 
+            // RemoveBtn
+            // 
+            this.RemoveBtn.Location = new System.Drawing.Point(717, 73);
+            this.RemoveBtn.Name = "RemoveBtn";
+            this.RemoveBtn.Size = new System.Drawing.Size(188, 58);
+            this.RemoveBtn.TabIndex = 11;
+            this.RemoveBtn.Text = "Remove";
+            this.RemoveBtn.UseVisualStyleBackColor = true;
+            this.RemoveBtn.Click += new System.EventHandler(this.RemoveBtn_Click);
+            // 
+            // UserBalanceLbl
+            // 
+            this.UserBalanceLbl.AutoSize = true;
+            this.UserBalanceLbl.Location = new System.Drawing.Point(517, -1);
+            this.UserBalanceLbl.Name = "UserBalanceLbl";
+            this.UserBalanceLbl.Size = new System.Drawing.Size(97, 41);
+            this.UserBalanceLbl.TabIndex = 12;
+            this.UserBalanceLbl.Text = "label5";
+            // 
             // CheckOut
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(17F, 41F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(859, 873);
+            this.ClientSize = new System.Drawing.Size(917, 873);
+            this.Controls.Add(this.UserBalanceLbl);
+            this.Controls.Add(this.RemoveBtn);
             this.Controls.Add(this.errLbl);
             this.Controls.Add(this.totalLbl);
             this.Controls.Add(this.taxLbl);
@@ -179,5 +202,7 @@
         private Label taxLbl;
         private Label totalLbl;
         private Label errLbl;
+        private Button RemoveBtn;
+        private Label UserBalanceLbl;
     }
 }

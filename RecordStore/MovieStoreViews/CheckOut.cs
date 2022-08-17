@@ -20,17 +20,14 @@ namespace MovieStore.MovieStoreViews
             InitializeComponent();
             user = curuser;
             user.usercart.GetTotal();
-            subtotalLbl.Text = user.usercart.CartTotal.ToString("c2");
-            float taxamount = (float)(user.usercart.CartTotal * .06);
-            float total = (float)(taxamount + user.usercart.CartTotal);
-            taxLbl.Text = taxamount.ToString("c2");
-            totalLbl.Text = total.ToString("c2");
+            UserBalanceLbl.Text = $"{user.Username}'s account balance:{user.AccountBalance.ToString("c2")}";
+            writetotals();
             CartItemList.DataSource = user.usercart.movies;
         }
 
         private void CancelBtn_Click(object sender, EventArgs e)
         {
-            new UserMenu(user).Show();
+            new MovieShop(user).Show();
             this.Hide();
         }
 
@@ -55,7 +52,7 @@ namespace MovieStore.MovieStoreViews
                 user.AccountBalance -= user.usercart.CartTotal;
                 user.usercart.movies.Clear();
                 user.usercart.CartTotal = 0;
-                new SuccessNotice(user).Show();
+                new SuccessNotice(user,user.usercart.movies.Count).Show();
                 this.Hide();
             }
         }
@@ -66,6 +63,21 @@ namespace MovieStore.MovieStoreViews
             
             string price = ((UserMovie)e.ListItem).PurchasePrice.ToString();
             e.Value = $"Title:{movietitle}  |  Price:{price} ";
+        }
+
+        private void RemoveBtn_Click(object sender, EventArgs e)
+        {
+            var removeitem = CartItemList.Items[CartItemList.SelectedIndex];
+            user.usercart.movies.Remove((UserMovie)removeitem);
+            writetotals();
+        }
+        public void writetotals()
+        {
+            subtotalLbl.Text = user.usercart.CartTotal.ToString("c2");
+            float taxamount = (float)(user.usercart.CartTotal * .06);
+            float total = (float)(taxamount + user.usercart.CartTotal);
+            taxLbl.Text = taxamount.ToString("c2");
+            totalLbl.Text = total.ToString("c2");
         }
     }
 }

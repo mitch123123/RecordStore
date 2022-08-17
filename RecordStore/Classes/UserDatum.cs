@@ -20,9 +20,10 @@ namespace MovieStore.Models
                 if (context.UserData.Any(o => o.Username == username))
                 {
                     curuser = context.UserData.Where(u => u.Username == username).Where(u => u.Password == password).FirstOrDefault();
-                    curuser.usercart = new Cart();
+                    
                     if (curuser != null)
                     {
+                        curuser.usercart = new Cart();
                         return curuser;
                     }
                 }
@@ -122,6 +123,7 @@ namespace MovieStore.Models
             using(var context = new MovieDatabaseContext())
             {
                 AccountBalance -= movie.PurchasePrice + (movie.PurchasePrice * .06);
+                movie.UserId = UserId;
                 context.UserMovies.Add(movie);
                 context.SaveChanges();
             }

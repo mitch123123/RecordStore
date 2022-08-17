@@ -26,8 +26,7 @@ namespace MovieStore.MovieStoreViews
             ShowData();
             DatePicker.Format = DateTimePickerFormat.Custom;
             DatePicker.CustomFormat = "yyyy";
-            DatePicker.ShowUpDown = true;
-        
+            DatePicker.ShowUpDown = true;       
             var genres = Genres.GetGenres();
             GenresListbox.DataSource = genres;
             GenresListbox.DisplayMember = "name";
@@ -133,5 +132,34 @@ namespace MovieStore.MovieStoreViews
             CartList.DisplayMember = "moviename";
            
         }
+
+        private void PopularBtn_Click(object sender, EventArgs e)
+        {
+            ConvertToSearchMovies("popular");
+        }
+        private void HighestRateBtn_Click(object sender, EventArgs e)
+        {
+            ConvertToSearchMovies("vote");       
+        }
+        
+        private void ReleaseBtn_Click(object sender, EventArgs e)
+        {
+            ConvertToSearchMovies("release");
+        }
+
+        private void RevenueBtn_Click(object sender, EventArgs e)
+        {
+            ConvertToSearchMovies("revenue");
+        }
+        public void ConvertToSearchMovies(string parm)
+        {
+            searchedmovies = new List<UserMovie>();
+            foreach (var movie in MovieSearch.GetSortedMovies(parm))
+            {
+                searchedmovies.Add(new UserMovie(movie));
+            }
+            MoviesList.DataSource = searchedmovies;
+        }
+
     }
 }

@@ -14,6 +14,7 @@ namespace MovieStore.Classes
         
         public BindingList<UserMovie> movies { get; set; }
         public float CartTotal { get; set; }
+      
         public void GetTotal()
         {
             foreach(var movie in movies)
