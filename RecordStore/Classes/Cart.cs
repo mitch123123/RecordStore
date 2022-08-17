@@ -13,7 +13,7 @@ namespace MovieStore.Classes
     {
         
         public BindingList<UserMovie> movies { get; set; }
-        public float CartTotal { get; set; }
+        public double CartTotal { get; set; }
       
         public void GetTotal()
         {

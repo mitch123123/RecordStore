@@ -7,7 +7,7 @@ namespace MovieStore.Models
     {
         public Guid? UserId { get; set; }
         public string MovieTitle { get; set; } = null!;
-        public float PurchasePrice { get; set; }
+        public double PurchasePrice { get; set; }
         public string MovieDesc { get; set; } = null!;
         public DateTime ReleaseDate { get; set; }
         public DateTime PurchaseDate { get; set; }

@@ -1,6 +1,7 @@
 ﻿using MovieStore;
 using MovieStore.Models;
 using MovieStore.MovieStoreViews;
+using MovieStore.UserViews;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -51,7 +52,7 @@ namespace homework9
 
         private void InventoryBtn_Click(object sender, EventArgs e)
         {
-          //  new EditMeals(user).Show();
+            new  UserInventory(user).Show();
             this.Hide();
         }
 

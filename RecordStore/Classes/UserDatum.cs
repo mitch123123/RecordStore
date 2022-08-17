@@ -122,7 +122,8 @@ namespace MovieStore.Models
         {
             using(var context = new MovieDatabaseContext())
             {
-                AccountBalance -= movie.PurchasePrice + (movie.PurchasePrice * .06);
+                var user = context.UserData.Where(a => a.UserId == UserId).FirstOrDefault();
+                user.AccountBalance -= movie.PurchasePrice + (movie.PurchasePrice * .06);                
                 movie.UserId = UserId;
                 context.UserMovies.Add(movie);
                 context.SaveChanges();

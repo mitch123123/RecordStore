@@ -23,7 +23,7 @@ namespace MovieStore.Models
 
             }
         }
-     public void CreateTransaction(UserDatum user,string desc, float amount)
+     public void CreateTransaction(UserDatum user,string desc, double amount)
         {
             UserId = user.UserId;
             amount = (float)(amount + (amount * .06));
@@ -34,7 +34,7 @@ namespace MovieStore.Models
             SetTransactionDate();
             SetTransactionLocation();
         }
-     public void GetNewWalletAmount(UserDatum user,float amount)
+     public void GetNewWalletAmount(UserDatum user,double amount)
         {
             user.AccountBalance = user.AccountBalance - amount;
             this.NewWalletAmount = (float)user.AccountBalance;
@@ -49,7 +49,7 @@ namespace MovieStore.Models
         {
             this.TransactionDescription = desc;
         }
-        public void SetTransactionAmount(float amount)
+        public void SetTransactionAmount(double amount)
         {
             this.TransactionAmount = amount;
         }

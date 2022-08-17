@@ -51,7 +51,7 @@ namespace MovieStore.Models
                     .HasMaxLength(50)
                     .IsUnicode(false);
 
-                entity.Property(e => e.NewWalletAmount).HasColumnType("decimal(18, 0)");
+                entity.Property(e => e.NewWalletAmount).HasColumnType("float");
             });
 
             modelBuilder.Entity<UserDatum>(entity =>
@@ -105,7 +105,7 @@ namespace MovieStore.Models
 
                 entity.Property(e => e.PurchaseDate).HasColumnType("datetime");
 
-                entity.Property(e => e.PurchasePrice).HasColumnType("decimal(18, 0)");
+                entity.Property(e => e.PurchasePrice).HasColumnType("float");
 
                 entity.Property(e => e.ReleaseDate).HasColumnType("datetime");
             });

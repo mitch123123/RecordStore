@@ -49,7 +49,7 @@ namespace MovieStore.MovieStoreViews
             }
             if (errLbl.Text == "")
             {
-                user.AccountBalance -= user.usercart.CartTotal;
+              
                 user.usercart.movies.Clear();
                 user.usercart.CartTotal = 0;
                 new SuccessNotice(user,user.usercart.movies.Count).Show();

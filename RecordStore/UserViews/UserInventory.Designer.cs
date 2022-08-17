@@ -50,8 +50,9 @@
             this.InventoryList.ItemHeight = 41;
             this.InventoryList.Location = new System.Drawing.Point(123, 120);
             this.InventoryList.Name = "InventoryList";
-            this.InventoryList.Size = new System.Drawing.Size(1671, 742);
+            this.InventoryList.Size = new System.Drawing.Size(3538, 742);
             this.InventoryList.TabIndex = 8;
+            this.InventoryList.Format += new System.Windows.Forms.ListControlConvertEventHandler(this.InventoryList_Format);
             // 
             // SearchBox
             // 
@@ -68,6 +69,7 @@
             this.SearchBtn.TabIndex = 6;
             this.SearchBtn.Text = "Search";
             this.SearchBtn.UseVisualStyleBackColor = true;
+            this.SearchBtn.Click += new System.EventHandler(this.SearchBtn_Click);
             // 
             // BackBtn
             // 
@@ -83,7 +85,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(17F, 41F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1917, 1018);
+            this.ClientSize = new System.Drawing.Size(3692, 1018);
             this.Controls.Add(this.UserLbl);
             this.Controls.Add(this.InventoryList);
             this.Controls.Add(this.SearchBox);
