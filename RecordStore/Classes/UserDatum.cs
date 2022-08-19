@@ -37,15 +37,15 @@ namespace MovieStore.Models
             }
         }
 
-        public static bool tryUpdateUserEF(UserDatum user, string pass, out string error)
+        public static bool tryUpdateUserEF(UserDatum user, out string error)
         {
             error = "";
             using (var context = new MovieDatabaseContext())
             {
-                var usertoupdate = context.UserData.SingleOrDefault(b => b.Username == user.Username);
+                var usertoupdate = context.UserData.SingleOrDefault(b => b.UserId == user.UserId);
                 //need to make sure all user data is there
                 usertoupdate = user;
-                usertoupdate.Password = pass;
+                
                 //add error handling
                 context.SaveChanges();
                 return true;

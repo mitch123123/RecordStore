@@ -53,8 +53,10 @@
             this.DescriptionBox = new System.Windows.Forms.Label();
             this.ReleaseBtn = new System.Windows.Forms.Button();
             this.RevenueBtn = new System.Windows.Forms.Button();
+            this.ThumbnailBox = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ThumbnailBox)).BeginInit();
             this.SuspendLayout();
             // 
             // SearchBtn
@@ -148,9 +150,9 @@
             // 
             // AddCartBtn
             // 
-            this.AddCartBtn.Location = new System.Drawing.Point(1034, 934);
+            this.AddCartBtn.Location = new System.Drawing.Point(1762, 796);
             this.AddCartBtn.Name = "AddCartBtn";
-            this.AddCartBtn.Size = new System.Drawing.Size(188, 58);
+            this.AddCartBtn.Size = new System.Drawing.Size(316, 58);
             this.AddCartBtn.TabIndex = 7;
             this.AddCartBtn.Text = "Add to Cart";
             this.AddCartBtn.UseVisualStyleBackColor = true;
@@ -158,9 +160,9 @@
             // 
             // MenuBtn
             // 
-            this.MenuBtn.Location = new System.Drawing.Point(34, 934);
+            this.MenuBtn.Location = new System.Drawing.Point(1764, 1115);
             this.MenuBtn.Name = "MenuBtn";
-            this.MenuBtn.Size = new System.Drawing.Size(261, 58);
+            this.MenuBtn.Size = new System.Drawing.Size(316, 58);
             this.MenuBtn.TabIndex = 8;
             this.MenuBtn.Text = "Back to menu";
             this.MenuBtn.UseVisualStyleBackColor = true;
@@ -197,7 +199,7 @@
             // CheckoutBtn
             // 
             this.CheckoutBtn.BackColor = System.Drawing.SystemColors.Info;
-            this.CheckoutBtn.Location = new System.Drawing.Point(1762, 910);
+            this.CheckoutBtn.Location = new System.Drawing.Point(1764, 1012);
             this.CheckoutBtn.Name = "CheckoutBtn";
             this.CheckoutBtn.Size = new System.Drawing.Size(316, 82);
             this.CheckoutBtn.TabIndex = 12;
@@ -208,7 +210,7 @@
             // DescriptLbl
             // 
             this.DescriptLbl.AutoSize = true;
-            this.DescriptLbl.Location = new System.Drawing.Point(1265, 260);
+            this.DescriptLbl.Location = new System.Drawing.Point(39, 931);
             this.DescriptLbl.Name = "DescriptLbl";
             this.DescriptLbl.Size = new System.Drawing.Size(176, 41);
             this.DescriptLbl.TabIndex = 14;
@@ -274,7 +276,7 @@
             // DescriptionBox
             // 
             this.DescriptionBox.AutoSize = true;
-            this.DescriptionBox.Location = new System.Drawing.Point(1284, 320);
+            this.DescriptionBox.Location = new System.Drawing.Point(39, 972);
             this.DescriptionBox.Name = "DescriptionBox";
             this.DescriptionBox.Size = new System.Drawing.Size(0, 41);
             this.DescriptionBox.TabIndex = 17;
@@ -299,11 +301,20 @@
             this.RevenueBtn.UseVisualStyleBackColor = true;
             this.RevenueBtn.Click += new System.EventHandler(this.RevenueBtn_Click);
             // 
+            // ThumbnailBox
+            // 
+            this.ThumbnailBox.Location = new System.Drawing.Point(1238, 269);
+            this.ThumbnailBox.Name = "ThumbnailBox";
+            this.ThumbnailBox.Size = new System.Drawing.Size(504, 501);
+            this.ThumbnailBox.TabIndex = 20;
+            this.ThumbnailBox.TabStop = false;
+            // 
             // MovieShop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(17F, 41F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(2105, 1083);
+            this.ClientSize = new System.Drawing.Size(2105, 1382);
+            this.Controls.Add(this.ThumbnailBox);
             this.Controls.Add(this.RevenueBtn);
             this.Controls.Add(this.ReleaseBtn);
             this.Controls.Add(this.DescriptionBox);
@@ -329,6 +340,7 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ThumbnailBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -361,5 +373,6 @@
         private Label DescriptionBox;
         private Button ReleaseBtn;
         private Button RevenueBtn;
+        private PictureBox ThumbnailBox;
     }
 }

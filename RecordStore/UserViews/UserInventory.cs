@@ -20,6 +20,8 @@ namespace MovieStore.UserViews
         {
             InitializeComponent();
             user = curuser;
+            DescriptionBox.MaximumSize = new Size(400, 0);
+            DescriptionBox.AutoSize = true;
         }
 
         private void BackBtn_Click(object sender, EventArgs e)
@@ -43,20 +45,27 @@ namespace MovieStore.UserViews
         {
             string movietitle = ((UserMovie)e.ListItem).MovieTitle.ToString();
             string releasedate = ((UserMovie)e.ListItem).ReleaseDate.ToString("MM/dd/yyyy");
-            string desc = ((UserMovie)e.ListItem).MovieDesc.ToString();
-            string price = ((UserMovie)e.ListItem).PurchasePrice.ToString("c2");
-            
+           // string desc = ((UserMovie)e.ListItem).MovieDesc.ToString();
+            string price = ((UserMovie)e.ListItem).PurchasePrice.ToString("c2");    
             string genres = ((UserMovie)e.ListItem).Genre.ToString();
 
 
-            e.Value = $"Title:{movietitle} | Release Date:{releasedate} | Purchase price:{price} | Genres:{genres} | Description: {desc} ";
+            e.Value = $"Title:{movietitle} | Release Date:{releasedate} | Purchase price:{price} | Genres:{genres}  ";
         }
 
         private void SearchBtn_Click(object sender, EventArgs e)
         {
             var search = SearchBox.Text;
-            var results = userinv.OrderByDescending(o => o.MovieTitle.StartsWith(search))
-                     .ThenBy(o => o.MovieTitle);
+             userinv = userinv.OrderByDescending(o => o.MovieTitle.StartsWith(search))
+                     .ThenBy(o => o.MovieTitle).ToList();
+            InventoryList.DataSource = userinv;
+        }
+
+        private void InventoryList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DescriptionBox.Text = "";
+            UserMovie o = (UserMovie)InventoryList.Items[InventoryList.SelectedIndex];
+            DescriptionBox.Text = o.MovieDesc;
         }
     }
 }

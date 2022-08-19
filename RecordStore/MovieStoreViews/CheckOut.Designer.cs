@@ -158,7 +158,7 @@
             // UserBalanceLbl
             // 
             this.UserBalanceLbl.AutoSize = true;
-            this.UserBalanceLbl.Location = new System.Drawing.Point(517, -1);
+            this.UserBalanceLbl.Location = new System.Drawing.Point(231, 9);
             this.UserBalanceLbl.Name = "UserBalanceLbl";
             this.UserBalanceLbl.Size = new System.Drawing.Size(97, 41);
             this.UserBalanceLbl.TabIndex = 12;
@@ -168,7 +168,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(17F, 41F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(917, 873);
+            this.ClientSize = new System.Drawing.Size(958, 873);
             this.Controls.Add(this.UserBalanceLbl);
             this.Controls.Add(this.RemoveBtn);
             this.Controls.Add(this.errLbl);

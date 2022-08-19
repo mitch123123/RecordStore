@@ -34,7 +34,7 @@ namespace MovieStore.MovieStoreViews
             //{
             //    GenresListbox.Items.Add(genre.name);
             //}
-            DescriptionBox.MaximumSize = new Size(400, 0);
+            DescriptionBox.MaximumSize = new Size(800, 0);
             DescriptionBox.AutoSize = true;
 
         }
@@ -110,8 +110,9 @@ namespace MovieStore.MovieStoreViews
 
         private void MoviesList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DescriptionBox.Text = "";
-           UserMovie o= (UserMovie)MoviesList.Items[MoviesList.SelectedIndex];   
+            DescriptionBox.Text = "";            
+            UserMovie o= (UserMovie)MoviesList.Items[MoviesList.SelectedIndex];
+            ThumbnailBox.Load(o.imageUrl);
             DescriptionBox.Text =o.MovieDesc;
         }
 

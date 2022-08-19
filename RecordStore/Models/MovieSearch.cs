@@ -97,6 +97,13 @@ namespace MovieStore.Models
                 return obj.results;
             }
         }
+        public static string SetImageUrl(string image)
+        {
+            var url = $"https://image.tmdb.org/t/p/w500/{image}";
+                return url;
+            
+
+        }
        
     }
 }

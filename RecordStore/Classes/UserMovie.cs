@@ -9,12 +9,17 @@ namespace MovieStore.Models
 {
     public partial class UserMovie
     {
+        [NotMapped]
+        public List<Genres.Genre> AllGenres { get; set; }
+        [NotMapped]
+        public List<int> genre_ids { get; set; }
+        [NotMapped]
+        public string imageUrl { get; set; }
         public UserMovie()
         {
 
         }
-        [NotMapped]
-        public List<Genres.Genre> G { get; set; }
+       
         public UserMovie(MovieSearch.Result movie)
         {
             if(movie.release_date == null)
@@ -29,14 +34,15 @@ namespace MovieStore.Models
             {
                 ReleaseDate = DateTime.Parse(movie.release_date);
             }
+            genre_ids = movie.genre_ids;
             string genreslist="Genres: ";
-            G = Genres.GetGenres();
-            var gid = movie.genre_ids;
-            foreach (var genre in gid){
-                var s = G.Find(x => x.id == genre);
-                genreslist += s.name=",";
+            AllGenres = Genres.GetGenres();         
+            foreach (var genre in genre_ids){
+                var s = AllGenres.Find(x => x.id == genre);
+                genreslist += s.name+",";
             }
             UserId = null;
+            imageUrl= MovieSearch.SetImageUrl(movie.poster_path);
             MovieTitle = movie.title;
             PurchasePrice = GetPrice(ReleaseDate.ToString());
             MovieDesc = movie.overview;

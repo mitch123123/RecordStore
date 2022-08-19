@@ -24,16 +24,17 @@ namespace MovieStore
 
         private void BackBtn_Click(object sender, EventArgs e)
         {
-            new UserMenu().Show();
+            new UserMenu(user).Show();
             this.Hide();
         }
 
         private void UserTransactions_Load(object sender, EventArgs e)
         {
             UserLbl.Text = $"Transactions for {user.Username}";
+            UserBalanceLbl.Text = $"Account Balance:{user.AccountBalance.ToString("c2")}";
             using (var context = new MovieDatabaseContext())
             {
-                usertrans = context.Banks.Where(a => a.UserId == user.UserId).ToList();
+                usertrans = context.Banks.Where(a => a.UserId == user.UserId).OrderBy(a=> a.TransactionDate).ToList();
                 TransactionsList.DataSource = usertrans;
             }
         }
@@ -50,9 +51,50 @@ namespace MovieStore
             e.Value = $"Date:{transactiondate} | Description:{transactiondesc} | Amount:{transamount} | Account Balance:{newwallet} | Purchase location: {location} ";
         }
 
-        private void FilterBtn_Click(object sender, EventArgs e)
+        private void FilterAscBtn_Click(object sender, EventArgs e)
         {
+            if (LocationRdo.Checked)
+            {
+                //order by is ascending by default
+                // the two statements below are identical in result
+                usertrans = usertrans.OrderBy(a => a.TransactionLocation).ToList();
+                //usertrans = (List<BankTransaction>)(from s in usertrans
+                //                    orderby s.TransactionLocation
+                //                    select s).ToList();
 
+            }
+            else if (PriceRdo.Checked)
+            {
+                usertrans = usertrans.OrderBy(a => a.TransactionAmount).ToList();
+            }
+            else
+            {
+                usertrans = usertrans.OrderBy(a => a.TransactionDate).ToList();
+            }
+            TransactionsList.DataSource = usertrans;
+        }
+
+        private void FilterDscBtn_Click(object sender, EventArgs e)
+        {
+            if (LocationRdo.Checked)
+            {
+                //order by is ascending by default
+                // the two statements below are identical in result
+                usertrans = usertrans.OrderByDescending(a => a.TransactionLocation).ToList();
+                //usertrans = (List<BankTransaction>)(from s in usertrans
+                //                    orderby s.TransactionLocation descending
+                //                    select s).ToList();
+
+            }
+            else if (PriceRdo.Checked)
+            {
+                usertrans = usertrans.OrderByDescending(a => a.TransactionAmount).ToList();
+            }
+            else
+            {
+                usertrans = usertrans.OrderByDescending(a => a.TransactionDate).ToList();
+            }
+            TransactionsList.DataSource = usertrans;
         }
     }
 }

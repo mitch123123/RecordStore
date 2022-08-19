@@ -59,9 +59,8 @@ namespace MovieStore.MovieStoreViews
 
         private void CartItemList_Format(object sender, ListControlConvertEventArgs e)
         {
-            string movietitle = ((UserMovie)e.ListItem).MovieTitle.ToString();
-            
-            string price = ((UserMovie)e.ListItem).PurchasePrice.ToString();
+            string movietitle = ((UserMovie)e.ListItem).MovieTitle.ToString();        
+            string price = ((UserMovie)e.ListItem).PurchasePrice.ToString("c2");
             e.Value = $"Title:{movietitle}  |  Price:{price} ";
         }
 

@@ -34,7 +34,7 @@ namespace MovieStore.Models
         {
             modelBuilder.Entity<BankTransaction>(entity =>
             {
-                entity.HasKey(e => e.UserId)
+                entity.HasKey(e => e.TransactionNumber)
                     .HasName("PK__Bank__1788CC4C96BF2CF6");
 
                 entity.ToTable("Bank");
@@ -76,7 +76,7 @@ namespace MovieStore.Models
           
             modelBuilder.Entity<UserMovie>(entity =>
             {
-                entity.HasKey(e => e.UserId)
+                entity.HasKey(e => e.MovieTitle)
                     .HasName("PK__UserMovi__1788CC4C57EE41B8");
 
                 entity.Property(e => e.UserId).ValueGeneratedNever();

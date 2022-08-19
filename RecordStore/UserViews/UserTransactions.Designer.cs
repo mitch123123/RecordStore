@@ -29,19 +29,21 @@
         private void InitializeComponent()
         {
             this.BackBtn = new System.Windows.Forms.Button();
-            this.FilterBtn = new System.Windows.Forms.Button();
+            this.FilterAscBtn = new System.Windows.Forms.Button();
             this.TransactionsList = new System.Windows.Forms.ListBox();
             this.UserLbl = new System.Windows.Forms.Label();
             this.Filters = new System.Windows.Forms.GroupBox();
-            this.DateRdo = new System.Windows.Forms.RadioButton();
-            this.PriceRdo = new System.Windows.Forms.RadioButton();
             this.LocationRdo = new System.Windows.Forms.RadioButton();
+            this.PriceRdo = new System.Windows.Forms.RadioButton();
+            this.DateRdo = new System.Windows.Forms.RadioButton();
+            this.UserBalanceLbl = new System.Windows.Forms.Label();
+            this.FilterDscBtn = new System.Windows.Forms.Button();
             this.Filters.SuspendLayout();
             this.SuspendLayout();
             // 
             // BackBtn
             // 
-            this.BackBtn.Location = new System.Drawing.Point(38, 926);
+            this.BackBtn.Location = new System.Drawing.Point(35, 961);
             this.BackBtn.Name = "BackBtn";
             this.BackBtn.Size = new System.Drawing.Size(188, 58);
             this.BackBtn.TabIndex = 0;
@@ -49,23 +51,23 @@
             this.BackBtn.UseVisualStyleBackColor = true;
             this.BackBtn.Click += new System.EventHandler(this.BackBtn_Click);
             // 
-            // FilterBtn
+            // FilterAscBtn
             // 
-            this.FilterBtn.Location = new System.Drawing.Point(1401, 31);
-            this.FilterBtn.Name = "FilterBtn";
-            this.FilterBtn.Size = new System.Drawing.Size(188, 58);
-            this.FilterBtn.TabIndex = 1;
-            this.FilterBtn.Text = "Filter";
-            this.FilterBtn.UseVisualStyleBackColor = true;
-            this.FilterBtn.Click += new System.EventHandler(this.FilterBtn_Click);
+            this.FilterAscBtn.Location = new System.Drawing.Point(1135, 7);
+            this.FilterAscBtn.Name = "FilterAscBtn";
+            this.FilterAscBtn.Size = new System.Drawing.Size(275, 58);
+            this.FilterAscBtn.TabIndex = 1;
+            this.FilterAscBtn.Text = "Filter Ascending";
+            this.FilterAscBtn.UseVisualStyleBackColor = true;
+            this.FilterAscBtn.Click += new System.EventHandler(this.FilterAscBtn_Click);
             // 
             // TransactionsList
             // 
             this.TransactionsList.FormattingEnabled = true;
             this.TransactionsList.ItemHeight = 41;
-            this.TransactionsList.Location = new System.Drawing.Point(1, 115);
+            this.TransactionsList.Location = new System.Drawing.Point(12, 150);
             this.TransactionsList.Name = "TransactionsList";
-            this.TransactionsList.Size = new System.Drawing.Size(1671, 742);
+            this.TransactionsList.Size = new System.Drawing.Size(2541, 742);
             this.TransactionsList.TabIndex = 3;
             this.TransactionsList.Format += new System.Windows.Forms.ListControlConvertEventHandler(this.TransactionsList_Format);
             // 
@@ -85,15 +87,36 @@
             this.Filters.Controls.Add(this.DateRdo);
             this.Filters.Location = new System.Drawing.Point(567, -3);
             this.Filters.Name = "Filters";
-            this.Filters.Size = new System.Drawing.Size(751, 120);
+            this.Filters.Size = new System.Drawing.Size(551, 120);
             this.Filters.TabIndex = 5;
             this.Filters.TabStop = false;
             this.Filters.Text = "Filter By:";
             // 
+            // LocationRdo
+            // 
+            this.LocationRdo.AutoSize = true;
+            this.LocationRdo.Location = new System.Drawing.Point(342, 46);
+            this.LocationRdo.Name = "LocationRdo";
+            this.LocationRdo.Size = new System.Drawing.Size(168, 45);
+            this.LocationRdo.TabIndex = 2;
+            this.LocationRdo.Text = "Location";
+            this.LocationRdo.UseVisualStyleBackColor = true;
+            // 
+            // PriceRdo
+            // 
+            this.PriceRdo.AutoSize = true;
+            this.PriceRdo.Location = new System.Drawing.Point(177, 46);
+            this.PriceRdo.Name = "PriceRdo";
+            this.PriceRdo.Size = new System.Drawing.Size(119, 45);
+            this.PriceRdo.TabIndex = 1;
+            this.PriceRdo.Text = "Price";
+            this.PriceRdo.UseVisualStyleBackColor = true;
+            // 
             // DateRdo
             // 
             this.DateRdo.AutoSize = true;
-            this.DateRdo.Location = new System.Drawing.Point(8, 52);
+            this.DateRdo.Checked = true;
+            this.DateRdo.Location = new System.Drawing.Point(18, 46);
             this.DateRdo.Name = "DateRdo";
             this.DateRdo.Size = new System.Drawing.Size(117, 45);
             this.DateRdo.TabIndex = 0;
@@ -101,37 +124,36 @@
             this.DateRdo.Text = "Date";
             this.DateRdo.UseVisualStyleBackColor = true;
             // 
-            // PriceRdo
+            // UserBalanceLbl
             // 
-            this.PriceRdo.AutoSize = true;
-            this.PriceRdo.Location = new System.Drawing.Point(241, 52);
-            this.PriceRdo.Name = "PriceRdo";
-            this.PriceRdo.Size = new System.Drawing.Size(119, 45);
-            this.PriceRdo.TabIndex = 1;
-            this.PriceRdo.TabStop = true;
-            this.PriceRdo.Text = "Price";
-            this.PriceRdo.UseVisualStyleBackColor = true;
+            this.UserBalanceLbl.AutoSize = true;
+            this.UserBalanceLbl.Location = new System.Drawing.Point(15, 71);
+            this.UserBalanceLbl.Name = "UserBalanceLbl";
+            this.UserBalanceLbl.Size = new System.Drawing.Size(97, 41);
+            this.UserBalanceLbl.TabIndex = 13;
+            this.UserBalanceLbl.Text = "label5";
             // 
-            // LocationRdo
+            // FilterDscBtn
             // 
-            this.LocationRdo.AutoSize = true;
-            this.LocationRdo.Location = new System.Drawing.Point(475, 52);
-            this.LocationRdo.Name = "LocationRdo";
-            this.LocationRdo.Size = new System.Drawing.Size(168, 45);
-            this.LocationRdo.TabIndex = 2;
-            this.LocationRdo.TabStop = true;
-            this.LocationRdo.Text = "Location";
-            this.LocationRdo.UseVisualStyleBackColor = true;
+            this.FilterDscBtn.Location = new System.Drawing.Point(1135, 86);
+            this.FilterDscBtn.Name = "FilterDscBtn";
+            this.FilterDscBtn.Size = new System.Drawing.Size(275, 58);
+            this.FilterDscBtn.TabIndex = 14;
+            this.FilterDscBtn.Text = "Filter Descending";
+            this.FilterDscBtn.UseVisualStyleBackColor = true;
+            this.FilterDscBtn.Click += new System.EventHandler(this.FilterDscBtn_Click);
             // 
             // UserTransactions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(17F, 41F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1684, 1017);
+            this.ClientSize = new System.Drawing.Size(2626, 1017);
+            this.Controls.Add(this.FilterDscBtn);
+            this.Controls.Add(this.UserBalanceLbl);
             this.Controls.Add(this.Filters);
             this.Controls.Add(this.UserLbl);
             this.Controls.Add(this.TransactionsList);
-            this.Controls.Add(this.FilterBtn);
+            this.Controls.Add(this.FilterAscBtn);
             this.Controls.Add(this.BackBtn);
             this.Name = "UserTransactions";
             this.Text = "UserTransactions";
@@ -146,12 +168,14 @@
         #endregion
 
         private Button BackBtn;
-        private Button FilterBtn;
+        private Button FilterAscBtn;
         private ListBox TransactionsList;
         private Label UserLbl;
         private GroupBox Filters;
         private RadioButton LocationRdo;
         private RadioButton PriceRdo;
         private RadioButton DateRdo;
+        private Label UserBalanceLbl;
+        private Button FilterDscBtn;
     }
 }

@@ -36,8 +36,6 @@
             this.PasswordBox = new System.Windows.Forms.TextBox();
             this.AgeBox = new System.Windows.Forms.TextBox();
             this.UserNameBox = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.NameBox = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.AccountBox = new System.Windows.Forms.TextBox();
             this.ErrorLBL = new System.Windows.Forms.Label();
@@ -49,9 +47,9 @@
             // 
             // submitchangesBtn
             // 
-            this.submitchangesBtn.Location = new System.Drawing.Point(559, 582);
+            this.submitchangesBtn.Location = new System.Drawing.Point(537, 514);
             this.submitchangesBtn.Name = "submitchangesBtn";
-            this.submitchangesBtn.Size = new System.Drawing.Size(286, 58);
+            this.submitchangesBtn.Size = new System.Drawing.Size(289, 58);
             this.submitchangesBtn.TabIndex = 24;
             this.submitchangesBtn.Text = "submit changes";
             this.submitchangesBtn.UseVisualStyleBackColor = true;
@@ -60,7 +58,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(368, 371);
+            this.label5.Location = new System.Drawing.Point(368, 291);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(78, 41);
             this.label5.TabIndex = 21;
@@ -93,7 +91,7 @@
             // 
             // AgeBox
             // 
-            this.AgeBox.Location = new System.Drawing.Point(559, 371);
+            this.AgeBox.Location = new System.Drawing.Point(559, 291);
             this.AgeBox.Name = "AgeBox";
             this.AgeBox.Size = new System.Drawing.Size(250, 47);
             this.AgeBox.TabIndex = 14;
@@ -102,30 +100,13 @@
             // 
             this.UserNameBox.Location = new System.Drawing.Point(559, 136);
             this.UserNameBox.Name = "UserNameBox";
-            this.UserNameBox.ReadOnly = true;
             this.UserNameBox.Size = new System.Drawing.Size(250, 47);
             this.UserNameBox.TabIndex = 12;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(368, 292);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(104, 41);
-            this.label7.TabIndex = 26;
-            this.label7.Text = "Name:";
-            // 
-            // NameBox
-            // 
-            this.NameBox.Location = new System.Drawing.Point(559, 289);
-            this.NameBox.Name = "NameBox";
-            this.NameBox.Size = new System.Drawing.Size(250, 47);
-            this.NameBox.TabIndex = 25;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(317, 454);
+            this.label8.Location = new System.Drawing.Point(317, 374);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(236, 41);
             this.label8.TabIndex = 28;
@@ -133,7 +114,7 @@
             // 
             // AccountBox
             // 
-            this.AccountBox.Location = new System.Drawing.Point(559, 454);
+            this.AccountBox.Location = new System.Drawing.Point(559, 374);
             this.AccountBox.Name = "AccountBox";
             this.AccountBox.ReadOnly = true;
             this.AccountBox.Size = new System.Drawing.Size(250, 47);
@@ -165,7 +146,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(368, 524);
+            this.label9.Location = new System.Drawing.Point(368, 444);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(131, 41);
             this.label9.TabIndex = 32;
@@ -174,7 +155,7 @@
             // 
             // locationBox
             // 
-            this.locationBox.Location = new System.Drawing.Point(559, 524);
+            this.locationBox.Location = new System.Drawing.Point(559, 444);
             this.locationBox.Name = "locationBox";
             this.locationBox.ReadOnly = true;
             this.locationBox.Size = new System.Drawing.Size(250, 47);
@@ -192,8 +173,6 @@
             this.Controls.Add(this.ErrorLBL);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.AccountBox);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.NameBox);
             this.Controls.Add(this.submitchangesBtn);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label2);
@@ -217,8 +196,6 @@
         private TextBox PasswordBox;
         private TextBox AgeBox;
         private TextBox UserNameBox;
-        private Label label7;
-        private TextBox NameBox;
         private Label label8;
         private TextBox AccountBox;
         private Label ErrorLBL;

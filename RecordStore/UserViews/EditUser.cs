@@ -37,7 +37,7 @@ namespace homework9
         {
             string error = "";
             user.Username = UserNameBox.Text;
-            var password = PasswordBox.Text;
+            user.Password = PasswordBox.Text;
            
            
             if (!user.getage(AgeBox.Text, out error))
@@ -50,7 +50,7 @@ namespace homework9
             user.getLocation();
             if (error == "")
             {
-                if (UserDatum.tryUpdateUserEF(user, password, out error))
+                if (UserDatum.tryUpdateUserEF(user, out error))
                 {
                     ErrorLBL.ForeColor = Color.Green;
                     ErrorLBL.Text = "profile Updated succesfully";
