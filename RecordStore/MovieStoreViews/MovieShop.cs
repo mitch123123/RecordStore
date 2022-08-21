@@ -34,7 +34,7 @@ namespace MovieStore.MovieStoreViews
             //{
             //    GenresListbox.Items.Add(genre.name);
             //}
-            DescriptionBox.MaximumSize = new Size(800, 0);
+            DescriptionBox.MaximumSize = new Size(600, 0);
             DescriptionBox.AutoSize = true;
 
         }
@@ -43,8 +43,7 @@ namespace MovieStore.MovieStoreViews
             int index = this.MoviesList.IndexFromPoint(e.Location);
             if (index != System.Windows.Forms.ListBox.NoMatches)
             {
-                user.usercart.movies.Add((UserMovie)MoviesList.Items[index]);
-             
+                AddCartBtn_Click();
             }
         }
         private void MenuBtn_Click(object sender, EventArgs e)
@@ -68,6 +67,15 @@ namespace MovieStore.MovieStoreViews
             CartList.DisplayMember = "movietitle";
 
         }
+        private void AddCartBtn_Click()
+        {
+
+            // user.usercart.movies.Add((UserMovie)MoviesList.SelectedValue );
+            user.usercart.movies.Add((UserMovie)MoviesList.Items[MoviesList.SelectedIndex]);
+            CartList.DataSource = user.usercart.movies;
+            CartList.DisplayMember = "movietitle";
+
+        }
 
         private void RemoveFromCartBtn_Click(object sender, EventArgs e)
         {
@@ -78,16 +86,13 @@ namespace MovieStore.MovieStoreViews
 
         private void SearchBtn_Click(object sender, EventArgs e)
         {
-           // searchedMovies = new Dictionary<string, UserMovie>();
+         
             searchedmovies = new List<UserMovie>();
 
             if (SearchByMovieRdo.Checked)
             {
                 foreach (var movie in MovieSearch.GetMoviesByName(SearchBox.Text.ToString()))
-                {
-                    //   var keyobj = new UserMovie(movie);
-                    //   var keystring = $"Title:{keyobj.MovieTitle} | Release Date:{keyobj.ReleaseDate} | Price:{keyobj.PurchasePrice} ";
-                    //   searchedMovies.Add(keystring,keyobj);
+                {  
                        searchedmovies.Add(new UserMovie(movie));
                 }
 
@@ -100,9 +105,6 @@ namespace MovieStore.MovieStoreViews
                     searchedmovies.Add(new UserMovie(movie));
                 }
             }
-            // MoviesList.DataSource = new BindingSource(searchedMovies, null);
-            // MoviesList.DisplayMember = "Key";
-            //  MoviesList.ValueMember = "Value";
             MoviesList.DataSource = searchedmovies;
             
 
@@ -112,7 +114,7 @@ namespace MovieStore.MovieStoreViews
         {
             DescriptionBox.Text = "";            
             UserMovie o= (UserMovie)MoviesList.Items[MoviesList.SelectedIndex];
-            ThumbnailBox.Load(o.imageUrl);
+            ThumbnailBox.Load(MovieSearch.SetImageUrl(o.imageUrl, "medium"));
             DescriptionBox.Text =o.MovieDesc;
         }
 
@@ -120,10 +122,10 @@ namespace MovieStore.MovieStoreViews
         {
             string movietitle = ((UserMovie)e.ListItem).MovieTitle.ToString();
             string releasedate = ((UserMovie)e.ListItem).ReleaseDate.ToString("MM/dd/yyyy");
-            string price = ((UserMovie)e.ListItem).PurchasePrice.ToString();
+            string price = ((UserMovie)e.ListItem).PurchasePrice.ToString("c2");
 
 
-            e.Value = $"Title:{movietitle} | Release Date:{releasedate} | Price:{price} ";
+            e.Value = $"Title: {movietitle} | Release Date: {releasedate} | Price: {price} ";
         }
         
 

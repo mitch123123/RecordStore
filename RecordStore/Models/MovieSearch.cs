@@ -1,10 +1,14 @@
 ﻿using Newtonsoft.Json;
 using System;
+using System.Net.Http;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.Storage.Streams;
+using Windows.UI.Xaml.Media.Imaging;
+
 
 namespace MovieStore.Models
 {
@@ -97,10 +101,43 @@ namespace MovieStore.Models
                 return obj.results;
             }
         }
-        public static string SetImageUrl(string image)
+       
+          
+           
+        
+        public static string SetImageUrl(string image, string size)
         {
-            var url = $"https://image.tmdb.org/t/p/w500/{image}";
+          
+            if (size == "supersmall")
+            {
+                var url = $"https://image.tmdb.org/t/p/w92/{image}";
                 return url;
+            }
+            else if (size == "small")
+            {
+                var url = $"https://image.tmdb.org/t/p/w154/{image}";
+                return url;
+            }
+            else if (size == "medium")
+            {
+                var url = $"https://image.tmdb.org/t/p/w185/{image}";
+                return url;
+            }
+            else if (size == "medium2")
+            {
+                var url = $"https://image.tmdb.org/t/p/w342/{image}";
+                return url;
+            }
+            else if (size == "large")
+            {
+                var url = $"https://image.tmdb.org/t/p/w500/{image}";
+                return url;
+            }
+            else
+            {
+                var url = $"https://image.tmdb.org/t/p/w780/{image}";
+                return url;
+            }
             
 
         }

@@ -14,5 +14,6 @@ namespace MovieStore.Models
         public string ImdbId { get; set; } = null!;
         public string MoviesDbId { get; set; } = null!;
         public string? Genre { get; set; }
+        public string? imageUrl { get; set; }
     }
 }

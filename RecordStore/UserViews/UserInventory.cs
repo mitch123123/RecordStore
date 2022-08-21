@@ -20,8 +20,8 @@ namespace MovieStore.UserViews
         {
             InitializeComponent();
             user = curuser;
-            DescriptionBox.MaximumSize = new Size(400, 0);
-            DescriptionBox.AutoSize = true;
+            DescriptLbl.MaximumSize = new Size(500, 0);
+            DescriptLbl.AutoSize = true;
         }
 
         private void BackBtn_Click(object sender, EventArgs e)
@@ -32,7 +32,7 @@ namespace MovieStore.UserViews
 
         private void UserInventory_Load(object sender, EventArgs e)
         {
-            UserLbl.Text = $"inventory for {user.Username}";
+            UserLbl.Text = $"Inventory for {user.Username}";
             using (var context = new MovieDatabaseContext())
             {
                  userinv = context.UserMovies.Where(a => a.UserId == user.UserId).ToList();
@@ -50,7 +50,7 @@ namespace MovieStore.UserViews
             string genres = ((UserMovie)e.ListItem).Genre.ToString();
 
 
-            e.Value = $"Title:{movietitle} | Release Date:{releasedate} | Purchase price:{price} | Genres:{genres}  ";
+            e.Value = $"Title:{movietitle} | Release Date:{releasedate} | Purchase price:{price} | Genres:{genres} ";
         }
 
         private void SearchBtn_Click(object sender, EventArgs e)
@@ -63,9 +63,15 @@ namespace MovieStore.UserViews
 
         private void InventoryList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DescriptionBox.Text = "";
+            DescriptLbl.Text = "";
             UserMovie o = (UserMovie)InventoryList.Items[InventoryList.SelectedIndex];
-            DescriptionBox.Text = o.MovieDesc;
+            thumbnailBox.Load(MovieSearch.SetImageUrl(o.imageUrl, "large"));
+            DescriptLbl.Text = o.MovieDesc;
+        }
+
+        private void DescriptLbl_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

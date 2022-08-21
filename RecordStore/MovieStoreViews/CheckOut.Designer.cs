@@ -45,9 +45,11 @@
             // 
             // CheckoutBtn
             // 
-            this.CheckoutBtn.Location = new System.Drawing.Point(9, 803);
+            this.CheckoutBtn.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.CheckoutBtn.Location = new System.Drawing.Point(8, 300);
+            this.CheckoutBtn.Margin = new System.Windows.Forms.Padding(1);
             this.CheckoutBtn.Name = "CheckoutBtn";
-            this.CheckoutBtn.Size = new System.Drawing.Size(188, 58);
+            this.CheckoutBtn.Size = new System.Drawing.Size(77, 33);
             this.CheckoutBtn.TabIndex = 0;
             this.CheckoutBtn.Text = "Checkout";
             this.CheckoutBtn.UseVisualStyleBackColor = true;
@@ -55,55 +57,62 @@
             // 
             // CartItemList
             // 
+            this.CartItemList.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.CartItemList.FormattingEnabled = true;
-            this.CartItemList.ItemHeight = 41;
-            this.CartItemList.Location = new System.Drawing.Point(12, 73);
+            this.CartItemList.ItemHeight = 17;
+            this.CartItemList.Location = new System.Drawing.Point(5, 27);
+            this.CartItemList.Margin = new System.Windows.Forms.Padding(1);
             this.CartItemList.Name = "CartItemList";
-            this.CartItemList.Size = new System.Drawing.Size(693, 578);
+            this.CartItemList.Size = new System.Drawing.Size(367, 208);
             this.CartItemList.TabIndex = 1;
             this.CartItemList.Format += new System.Windows.Forms.ListControlConvertEventHandler(this.CartItemList_Format);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(9, 15);
+            this.label1.Location = new System.Drawing.Point(4, 5);
+            this.label1.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(91, 41);
+            this.label1.Size = new System.Drawing.Size(36, 15);
             this.label1.TabIndex = 2;
             this.label1.Text = "Items";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(1, 655);
+            this.label2.Location = new System.Drawing.Point(4, 246);
+            this.label2.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(133, 41);
+            this.label2.Size = new System.Drawing.Size(53, 15);
             this.label2.TabIndex = 3;
             this.label2.Text = "subtotal:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(67, 696);
+            this.label3.Location = new System.Drawing.Point(32, 261);
+            this.label3.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(67, 41);
+            this.label3.Size = new System.Drawing.Size(27, 15);
             this.label3.TabIndex = 4;
             this.label3.Text = "Tax:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(46, 737);
+            this.label4.Location = new System.Drawing.Point(23, 276);
+            this.label4.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(88, 41);
+            this.label4.Size = new System.Drawing.Size(35, 15);
             this.label4.TabIndex = 5;
             this.label4.Text = "Total:";
             // 
             // CancelBtn
             // 
-            this.CancelBtn.Location = new System.Drawing.Point(517, 657);
+            this.CancelBtn.Location = new System.Drawing.Point(95, 300);
+            this.CancelBtn.Margin = new System.Windows.Forms.Padding(1);
             this.CancelBtn.Name = "CancelBtn";
-            this.CancelBtn.Size = new System.Drawing.Size(188, 58);
+            this.CancelBtn.Size = new System.Drawing.Size(77, 21);
             this.CancelBtn.TabIndex = 6;
             this.CancelBtn.Text = "Cancel";
             this.CancelBtn.UseVisualStyleBackColor = true;
@@ -112,27 +121,30 @@
             // subtotalLbl
             // 
             this.subtotalLbl.AutoSize = true;
-            this.subtotalLbl.Location = new System.Drawing.Point(136, 657);
+            this.subtotalLbl.Location = new System.Drawing.Point(60, 246);
+            this.subtotalLbl.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.subtotalLbl.Name = "subtotalLbl";
-            this.subtotalLbl.Size = new System.Drawing.Size(66, 41);
+            this.subtotalLbl.Size = new System.Drawing.Size(26, 15);
             this.subtotalLbl.TabIndex = 7;
             this.subtotalLbl.Text = "sub";
             // 
             // taxLbl
             // 
             this.taxLbl.AutoSize = true;
-            this.taxLbl.Location = new System.Drawing.Point(136, 696);
+            this.taxLbl.Location = new System.Drawing.Point(60, 261);
+            this.taxLbl.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.taxLbl.Name = "taxLbl";
-            this.taxLbl.Size = new System.Drawing.Size(57, 41);
+            this.taxLbl.Size = new System.Drawing.Size(23, 15);
             this.taxLbl.TabIndex = 8;
             this.taxLbl.Text = "tax";
             // 
             // totalLbl
             // 
             this.totalLbl.AutoSize = true;
-            this.totalLbl.Location = new System.Drawing.Point(137, 737);
+            this.totalLbl.Location = new System.Drawing.Point(60, 276);
+            this.totalLbl.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.totalLbl.Name = "totalLbl";
-            this.totalLbl.Size = new System.Drawing.Size(56, 41);
+            this.totalLbl.Size = new System.Drawing.Size(22, 15);
             this.totalLbl.TabIndex = 9;
             this.totalLbl.Text = "tot";
             // 
@@ -140,16 +152,18 @@
             // 
             this.errLbl.AutoSize = true;
             this.errLbl.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.errLbl.Location = new System.Drawing.Point(437, 824);
+            this.errLbl.Location = new System.Drawing.Point(180, 301);
+            this.errLbl.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.errLbl.Name = "errLbl";
-            this.errLbl.Size = new System.Drawing.Size(0, 41);
+            this.errLbl.Size = new System.Drawing.Size(0, 15);
             this.errLbl.TabIndex = 10;
             // 
             // RemoveBtn
             // 
-            this.RemoveBtn.Location = new System.Drawing.Point(717, 73);
+            this.RemoveBtn.Location = new System.Drawing.Point(295, 252);
+            this.RemoveBtn.Margin = new System.Windows.Forms.Padding(1);
             this.RemoveBtn.Name = "RemoveBtn";
-            this.RemoveBtn.Size = new System.Drawing.Size(188, 58);
+            this.RemoveBtn.Size = new System.Drawing.Size(77, 24);
             this.RemoveBtn.TabIndex = 11;
             this.RemoveBtn.Text = "Remove";
             this.RemoveBtn.UseVisualStyleBackColor = true;
@@ -158,17 +172,19 @@
             // UserBalanceLbl
             // 
             this.UserBalanceLbl.AutoSize = true;
-            this.UserBalanceLbl.Location = new System.Drawing.Point(231, 9);
+            this.UserBalanceLbl.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
+            this.UserBalanceLbl.Location = new System.Drawing.Point(95, 3);
+            this.UserBalanceLbl.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.UserBalanceLbl.Name = "UserBalanceLbl";
-            this.UserBalanceLbl.Size = new System.Drawing.Size(97, 41);
+            this.UserBalanceLbl.Size = new System.Drawing.Size(41, 17);
             this.UserBalanceLbl.TabIndex = 12;
             this.UserBalanceLbl.Text = "label5";
             // 
             // CheckOut
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(17F, 41F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(958, 873);
+            this.ClientSize = new System.Drawing.Size(407, 343);
             this.Controls.Add(this.UserBalanceLbl);
             this.Controls.Add(this.RemoveBtn);
             this.Controls.Add(this.errLbl);
@@ -182,6 +198,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.CartItemList);
             this.Controls.Add(this.CheckoutBtn);
+            this.Margin = new System.Windows.Forms.Padding(1);
             this.Name = "CheckOut";
             this.Text = "CheckOut";
             this.ResumeLayout(false);

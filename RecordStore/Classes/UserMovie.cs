@@ -13,8 +13,8 @@ namespace MovieStore.Models
         public List<Genres.Genre> AllGenres { get; set; }
         [NotMapped]
         public List<int> genre_ids { get; set; }
-        [NotMapped]
-        public string imageUrl { get; set; }
+       
+        
         public UserMovie()
         {
 
@@ -42,7 +42,7 @@ namespace MovieStore.Models
                 genreslist += s.name+",";
             }
             UserId = null;
-            imageUrl= MovieSearch.SetImageUrl(movie.poster_path);
+            imageUrl = movie.poster_path;
             MovieTitle = movie.title;
             PurchasePrice = GetPrice(ReleaseDate.ToString());
             MovieDesc = movie.overview;

@@ -25,6 +25,7 @@ namespace homework9
         {
             InitializeComponent();
             user = fromuser;
+            LogOffBtn.BackColor = Color.LightCoral;
         }
 
         private void EditPrfBtn_Click(object sender, EventArgs e)
@@ -67,16 +68,12 @@ namespace homework9
             TimeLBL.Text = DateTime.Now.ToString("g");
         }
 
-        private void SearchMovieBtn_Click(object sender, EventArgs e)
+        private void ShopTvBtn_Click(object sender, EventArgs e)
         {
-            //  new ViewMeals(user).Show();
+            new SearchEverything(user).Show();
             this.Hide();
         }
 
-        private void ReturnMovieBtn_Click(object sender, EventArgs e)
-        {
-            //  new ViewMeals(user).Show();
-            this.Hide();
-        }
+       
     }
 }

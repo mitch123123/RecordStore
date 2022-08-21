@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MovieStore.Models
 {
-    internal class ActorSearch
+    public class ActorSearch
     {// Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(myJsonResponse);
         public class KnownFor
         {
@@ -61,6 +61,18 @@ namespace MovieStore.Models
                 var obj = JsonConvert.DeserializeObject<Root>(json);
                 var actor= obj.results.First();
                 return actor;
+            }
+        }
+        public static List<Result> GetActors(string query)
+        {
+            using (var http = new HttpClient())
+            {
+                var endpoint = $"https://api.themoviedb.org/3/search/person?api_key=73321a7b17e84973837c579c8bb62fe7&language=en-US&query={query}&page=1&include_adult=false";
+                var result = http.GetAsync(endpoint).Result;
+                var json = result.Content.ReadAsStringAsync().Result;
+                var obj = JsonConvert.DeserializeObject<Root>(json);
+                return obj.results;
+                
             }
         }
     }

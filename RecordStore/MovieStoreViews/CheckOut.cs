@@ -18,8 +18,7 @@ namespace MovieStore.MovieStoreViews
         public CheckOut(UserDatum curuser)
         {
             InitializeComponent();
-            user = curuser;
-            user.usercart.GetTotal();
+            user = curuser;           
             UserBalanceLbl.Text = $"{user.Username}'s account balance:{user.AccountBalance.ToString("c2")}";
             writetotals();
             CartItemList.DataSource = user.usercart.movies;
@@ -49,10 +48,19 @@ namespace MovieStore.MovieStoreViews
             }
             if (errLbl.Text == "")
             {
+                var c = user.usercart.movies.Count;
+                string moviesadded= user.usercart.movies[0].MovieTitle;
+                if(c > 1)
+                {
+                    foreach (var movie in user.usercart.movies)
+                    {
+                        moviesadded += $",{movie.MovieTitle}";
+                    }
+                }
               
                 user.usercart.movies.Clear();
                 user.usercart.CartTotal = 0;
-                new SuccessNotice(user,user.usercart.movies.Count).Show();
+                new SuccessNotice(user,c, moviesadded).Show();
                 this.Hide();
             }
         }
@@ -72,6 +80,7 @@ namespace MovieStore.MovieStoreViews
         }
         public void writetotals()
         {
+            user.usercart.GetTotal();
             subtotalLbl.Text = user.usercart.CartTotal.ToString("c2");
             float taxamount = (float)(user.usercart.CartTotal * .06);
             float total = (float)(taxamount + user.usercart.CartTotal);
