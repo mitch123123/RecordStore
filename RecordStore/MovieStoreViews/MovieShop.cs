@@ -61,19 +61,27 @@ namespace MovieStore.MovieStoreViews
         private void AddCartBtn_Click(object sender, EventArgs e)
         {
 
-            // user.usercart.movies.Add((UserMovie)MoviesList.SelectedValue );
-            user.usercart.movies.Add((UserMovie)MoviesList.Items[MoviesList.SelectedIndex]);
-            CartList.DataSource = user.usercart.movies;
-            CartList.DisplayMember = "movietitle";
-
+          
+            AddCartBtn_Click();
         }
         private void AddCartBtn_Click()
         {
 
             // user.usercart.movies.Add((UserMovie)MoviesList.SelectedValue );
-            user.usercart.movies.Add((UserMovie)MoviesList.Items[MoviesList.SelectedIndex]);
-            CartList.DataSource = user.usercart.movies;
-            CartList.DisplayMember = "movietitle";
+            var selected_movie = (UserMovie)MoviesList.Items[MoviesList.SelectedIndex];
+            if(user.CheckCart(selected_movie.MovieTitle, out var erritem))
+            {
+                ErrLbl.ForeColor =Color.Red;
+                ErrLbl.Text = $"{erritem} is already in your cart";
+            }
+            else
+            {
+                ErrLbl.Text = "";
+                user.usercart.movies.Add(selected_movie);
+                CartList.DataSource = user.usercart.movies;
+                CartList.DisplayMember = "movietitle";
+
+            }
 
         }
 

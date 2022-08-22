@@ -31,6 +31,18 @@ namespace MovieStore.Models
             }
             
         }
+        public bool CheckCart(string additem,out string incart)
+        {
+            incart = null;
+           
+            if (usercart.movies.Any(i => i.MovieTitle == additem))
+            {
+                incart = additem;
+                return true;
+            }
+            return false;
+
+        }
         public static UserDatum LookupUserEF(string username, string password, out string error)
         {
             using (var context = new MovieDatabaseContext())

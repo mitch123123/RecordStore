@@ -54,6 +54,7 @@
             this.ReleaseBtn = new System.Windows.Forms.Button();
             this.RevenueBtn = new System.Windows.Forms.Button();
             this.ThumbnailBox = new System.Windows.Forms.PictureBox();
+            this.ErrLbl = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ThumbnailBox)).BeginInit();
@@ -342,11 +343,20 @@
             this.ThumbnailBox.TabIndex = 20;
             this.ThumbnailBox.TabStop = false;
             // 
+            // ErrLbl
+            // 
+            this.ErrLbl.AutoSize = true;
+            this.ErrLbl.Location = new System.Drawing.Point(628, 537);
+            this.ErrLbl.Name = "ErrLbl";
+            this.ErrLbl.Size = new System.Drawing.Size(0, 15);
+            this.ErrLbl.TabIndex = 21;
+            // 
             // MovieShop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(994, 534);
+            this.ClientSize = new System.Drawing.Size(994, 555);
+            this.Controls.Add(this.ErrLbl);
             this.Controls.Add(this.ThumbnailBox);
             this.Controls.Add(this.RevenueBtn);
             this.Controls.Add(this.ReleaseBtn);
@@ -408,5 +418,6 @@
         private Button ReleaseBtn;
         private Button RevenueBtn;
         private PictureBox ThumbnailBox;
+        private Label ErrLbl;
     }
 }
