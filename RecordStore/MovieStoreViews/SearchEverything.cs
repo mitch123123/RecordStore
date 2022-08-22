@@ -1,4 +1,5 @@
-﻿using MovieStore.Models;
+﻿using homework9;
+using MovieStore.Models;
 using SharpDX.WIC;
 using System;
 using System.Collections.Generic;
@@ -54,7 +55,8 @@ namespace MovieStore.MovieStoreViews
 
         private void MenuBtn_Click(object sender, EventArgs e)
         {
-
+            new UserMenu(user).Show();
+            this.Hide();
         }
       
         private void MoviesList_SelectedIndexChanged(object sender, EventArgs e)
@@ -113,9 +115,11 @@ namespace MovieStore.MovieStoreViews
                 if (SearchByMovieRdo.Checked)
                 {
                     var moviedetails = MovieDetails.GetMovieDetails(o.id);
-                    BudgetLbl.Text = $"${moviedetails.budget}";
-                    RevenueLbl.Text = $"${moviedetails.revenue}";
-                    ReleaseLbl.Text = moviedetails.status;
+                   
+                    BudgetLbl.Text = moviedetails.budget.ToString("C");
+                    RevenueLbl.Text = moviedetails.revenue.ToString("C");
+                    EstProfitLbl.Text= (moviedetails.revenue - moviedetails.budget).ToString("C");
+                    StatusLbl.Text = moviedetails.status;
                     TaglineLbl.Text = moviedetails.tagline;
                     RuntimeLbl.Text = $"{moviedetails.runtime} minutes";
                     WebsiteLbl.Text = moviedetails.homepage;

@@ -87,6 +87,8 @@
             this.ActorPopularbar = new System.Windows.Forms.ProgressBar();
             this.label18 = new System.Windows.Forms.Label();
             this.PopularityActorLbl = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.EstProfitLbl = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.ThumbnailBox)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -279,6 +281,8 @@
             // 
             // MoviesGroup
             // 
+            this.MoviesGroup.Controls.Add(this.EstProfitLbl);
+            this.MoviesGroup.Controls.Add(this.label2);
             this.MoviesGroup.Controls.Add(this.TaglineLbl);
             this.MoviesGroup.Controls.Add(this.label24);
             this.MoviesGroup.Controls.Add(this.StatusLbl);
@@ -333,7 +337,7 @@
             // StatusLbl
             // 
             this.StatusLbl.AutoSize = true;
-            this.StatusLbl.Location = new System.Drawing.Point(132, 123);
+            this.StatusLbl.Location = new System.Drawing.Point(132, 215);
             this.StatusLbl.Name = "StatusLbl";
             this.StatusLbl.Size = new System.Drawing.Size(0, 15);
             this.StatusLbl.TabIndex = 35;
@@ -342,7 +346,7 @@
             // 
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("Segoe UI", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point);
-            this.label23.Location = new System.Drawing.Point(132, 104);
+            this.label23.Location = new System.Drawing.Point(132, 196);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(57, 15);
             this.label23.TabIndex = 34;
@@ -546,7 +550,7 @@
             this.ActorGroup.Controls.Add(this.ActorPopularbar);
             this.ActorGroup.Controls.Add(this.label18);
             this.ActorGroup.Controls.Add(this.PopularityActorLbl);
-            this.ActorGroup.Location = new System.Drawing.Point(253, 159);
+            this.ActorGroup.Location = new System.Drawing.Point(253, 434);
             this.ActorGroup.Name = "ActorGroup";
             this.ActorGroup.Size = new System.Drawing.Size(458, 281);
             this.ActorGroup.TabIndex = 42;
@@ -715,6 +719,25 @@
             this.PopularityActorLbl.TabIndex = 17;
             this.PopularityActorLbl.Text = "label8";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point);
+            this.label2.Location = new System.Drawing.Point(135, 101);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(58, 15);
+            this.label2.TabIndex = 38;
+            this.label2.Text = "Est Profit";
+            // 
+            // EstProfitLbl
+            // 
+            this.EstProfitLbl.AutoSize = true;
+            this.EstProfitLbl.Location = new System.Drawing.Point(138, 123);
+            this.EstProfitLbl.Name = "EstProfitLbl";
+            this.EstProfitLbl.Size = new System.Drawing.Size(44, 15);
+            this.EstProfitLbl.TabIndex = 39;
+            this.EstProfitLbl.Text = "label20";
+            // 
             // SearchEverything
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -809,5 +832,7 @@
         private Label label19;
         private Label BudgetLbl;
         private Label label17;
+        private Label EstProfitLbl;
+        private Label label2;
     }
 }

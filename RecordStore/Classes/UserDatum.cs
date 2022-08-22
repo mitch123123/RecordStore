@@ -11,6 +11,26 @@ namespace MovieStore.Models
     {
         [NotMapped]
         public Cart? usercart { get; set; }
+        public bool checkInventory(out string AlreadyOwned)
+        {
+            using (var context = new MovieDatabaseContext())
+            {
+                AlreadyOwned = null;
+                var UsersOwnedMovies = context.UserMovies.Where(u=> u.UserId == UserId).ToList();
+                foreach (var item in usercart.movies)
+                {
+                    if (UsersOwnedMovies.Any(i => i.MovieTitle == item.MovieTitle))
+                    {
+                        AlreadyOwned = item.MovieTitle;
+                        return true;
+                    }
+                   
+                }
+
+                return false;
+            }
+            
+        }
         public static UserDatum LookupUserEF(string username, string password, out string error)
         {
             using (var context = new MovieDatabaseContext())

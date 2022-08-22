@@ -33,19 +33,27 @@ namespace MovieStore.MovieStoreViews
         private async void CheckoutBtn_Click(object sender, EventArgs e)
         {
             var bank = new BankTransaction();
-            foreach(var item in user.usercart.movies)
+            if(user.checkInventory(out var alreadyowned))
             {
-                bank.CreateTransaction(user, $"purchase of {item.MovieTitle}", item.PurchasePrice);
-            if (!await bank.LogTransaction())
+                errLbl.Text = $"you already own {alreadyowned}, please remove from cart and try again";
+            }
+            else
+            {
+                foreach (var item in user.usercart.movies)
                 {
-                    errLbl.ForeColor = Color.Red;
-                    errLbl.Text = "transaction failed";
-                    break;
+                    bank.CreateTransaction(user, $"purchase of {item.MovieTitle}", item.PurchasePrice);
+                    if (!await bank.LogTransaction())
+                    {
+                        errLbl.ForeColor = Color.Red;
+                        errLbl.Text = "transaction failed";
+                        break;
+
+                    }
+                    user.AddMovie(item);
 
                 }
-            user.AddMovie(item);
-               
             }
+            
             if (errLbl.Text == "")
             {
                 var c = user.usercart.movies.Count;
