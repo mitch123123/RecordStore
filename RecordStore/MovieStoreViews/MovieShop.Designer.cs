@@ -93,7 +93,7 @@
             // 
             this.MoviesList.FormattingEnabled = true;
             this.MoviesList.ItemHeight = 15;
-            this.MoviesList.Location = new System.Drawing.Point(14, 114);
+            this.MoviesList.Location = new System.Drawing.Point(14, 130);
             this.MoviesList.Margin = new System.Windows.Forms.Padding(1);
             this.MoviesList.Name = "MoviesList";
             this.MoviesList.Size = new System.Drawing.Size(610, 244);
@@ -107,7 +107,7 @@
             this.PopularBtn.Location = new System.Drawing.Point(11, 89);
             this.PopularBtn.Margin = new System.Windows.Forms.Padding(1);
             this.PopularBtn.Name = "PopularBtn";
-            this.PopularBtn.Size = new System.Drawing.Size(56, 21);
+            this.PopularBtn.Size = new System.Drawing.Size(56, 25);
             this.PopularBtn.TabIndex = 4;
             this.PopularBtn.Text = "Popular";
             this.PopularBtn.UseVisualStyleBackColor = true;
@@ -162,10 +162,10 @@
             // 
             // AddCartBtn
             // 
-            this.AddCartBtn.Location = new System.Drawing.Point(494, 360);
+            this.AddCartBtn.Location = new System.Drawing.Point(494, 376);
             this.AddCartBtn.Margin = new System.Windows.Forms.Padding(1);
             this.AddCartBtn.Name = "AddCartBtn";
-            this.AddCartBtn.Size = new System.Drawing.Size(130, 21);
+            this.AddCartBtn.Size = new System.Drawing.Size(130, 22);
             this.AddCartBtn.TabIndex = 7;
             this.AddCartBtn.Text = "Add to Cart";
             this.AddCartBtn.UseVisualStyleBackColor = true;
@@ -173,7 +173,7 @@
             // 
             // MenuBtn
             // 
-            this.MenuBtn.Location = new System.Drawing.Point(841, 472);
+            this.MenuBtn.Location = new System.Drawing.Point(841, 488);
             this.MenuBtn.Margin = new System.Windows.Forms.Padding(1);
             this.MenuBtn.Name = "MenuBtn";
             this.MenuBtn.Size = new System.Drawing.Size(130, 21);
@@ -184,7 +184,7 @@
             // 
             // RemoveFromCartBtn
             // 
-            this.RemoveFromCartBtn.Location = new System.Drawing.Point(838, 270);
+            this.RemoveFromCartBtn.Location = new System.Drawing.Point(838, 286);
             this.RemoveFromCartBtn.Margin = new System.Windows.Forms.Padding(1);
             this.RemoveFromCartBtn.Name = "RemoveFromCartBtn";
             this.RemoveFromCartBtn.Size = new System.Drawing.Size(130, 23);
@@ -197,7 +197,7 @@
             // 
             this.CartList.FormattingEnabled = true;
             this.CartList.ItemHeight = 15;
-            this.CartList.Location = new System.Drawing.Point(838, 114);
+            this.CartList.Location = new System.Drawing.Point(838, 130);
             this.CartList.Margin = new System.Windows.Forms.Padding(1);
             this.CartList.Name = "CartList";
             this.CartList.Size = new System.Drawing.Size(133, 154);
@@ -206,7 +206,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(838, 95);
+            this.label3.Location = new System.Drawing.Point(838, 114);
             this.label3.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(27, 15);
@@ -217,7 +217,7 @@
             // 
             this.CheckoutBtn.BackColor = System.Drawing.SystemColors.Info;
             this.CheckoutBtn.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.CheckoutBtn.Location = new System.Drawing.Point(841, 434);
+            this.CheckoutBtn.Location = new System.Drawing.Point(841, 450);
             this.CheckoutBtn.Margin = new System.Windows.Forms.Padding(1);
             this.CheckoutBtn.Name = "CheckoutBtn";
             this.CheckoutBtn.Size = new System.Drawing.Size(130, 30);
@@ -230,7 +230,7 @@
             // 
             this.DescriptLbl.AutoSize = true;
             this.DescriptLbl.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.DescriptLbl.Location = new System.Drawing.Point(14, 359);
+            this.DescriptLbl.Location = new System.Drawing.Point(14, 375);
             this.DescriptLbl.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.DescriptLbl.Name = "DescriptLbl";
             this.DescriptLbl.Size = new System.Drawing.Size(93, 20);
@@ -247,7 +247,7 @@
             this.groupBox2.Margin = new System.Windows.Forms.Padding(1);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(1);
-            this.groupBox2.Size = new System.Drawing.Size(523, 108);
+            this.groupBox2.Size = new System.Drawing.Size(523, 112);
             this.groupBox2.TabIndex = 15;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Filters";
@@ -274,11 +274,12 @@
             // DatePicker
             // 
             this.DatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.DatePicker.Location = new System.Drawing.Point(60, 22);
+            this.DatePicker.Location = new System.Drawing.Point(94, 18);
             this.DatePicker.Margin = new System.Windows.Forms.Padding(1);
             this.DatePicker.Name = "DatePicker";
             this.DatePicker.Size = new System.Drawing.Size(84, 23);
             this.DatePicker.TabIndex = 1;
+            this.DatePicker.Value = new System.DateTime(1950, 1, 1, 0, 0, 0, 0);
             // 
             // label4
             // 
@@ -286,16 +287,16 @@
             this.label4.Location = new System.Drawing.Point(7, 21);
             this.label4.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(48, 15);
+            this.label4.Size = new System.Drawing.Size(85, 15);
             this.label4.TabIndex = 0;
-            this.label4.Text = "By year:";
+            this.label4.Text = "Released After:";
             // 
             // HighestRateBtn
             // 
             this.HighestRateBtn.Location = new System.Drawing.Point(70, 89);
             this.HighestRateBtn.Margin = new System.Windows.Forms.Padding(1);
             this.HighestRateBtn.Name = "HighestRateBtn";
-            this.HighestRateBtn.Size = new System.Drawing.Size(90, 21);
+            this.HighestRateBtn.Size = new System.Drawing.Size(90, 25);
             this.HighestRateBtn.TabIndex = 16;
             this.HighestRateBtn.Text = "Highest Rated";
             this.HighestRateBtn.UseVisualStyleBackColor = true;
@@ -304,7 +305,7 @@
             // DescriptionBox
             // 
             this.DescriptionBox.AutoSize = true;
-            this.DescriptionBox.Location = new System.Drawing.Point(14, 388);
+            this.DescriptionBox.Location = new System.Drawing.Point(14, 404);
             this.DescriptionBox.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.DescriptionBox.Name = "DescriptionBox";
             this.DescriptionBox.Size = new System.Drawing.Size(0, 15);
@@ -315,7 +316,7 @@
             this.ReleaseBtn.Location = new System.Drawing.Point(162, 89);
             this.ReleaseBtn.Margin = new System.Windows.Forms.Padding(1);
             this.ReleaseBtn.Name = "ReleaseBtn";
-            this.ReleaseBtn.Size = new System.Drawing.Size(56, 21);
+            this.ReleaseBtn.Size = new System.Drawing.Size(56, 25);
             this.ReleaseBtn.TabIndex = 18;
             this.ReleaseBtn.Text = "Release";
             this.ReleaseBtn.UseVisualStyleBackColor = true;
@@ -326,7 +327,7 @@
             this.RevenueBtn.Location = new System.Drawing.Point(221, 89);
             this.RevenueBtn.Margin = new System.Windows.Forms.Padding(1);
             this.RevenueBtn.Name = "RevenueBtn";
-            this.RevenueBtn.Size = new System.Drawing.Size(66, 21);
+            this.RevenueBtn.Size = new System.Drawing.Size(66, 25);
             this.RevenueBtn.TabIndex = 19;
             this.RevenueBtn.Text = "Revenue";
             this.RevenueBtn.UseVisualStyleBackColor = true;
@@ -334,7 +335,7 @@
             // 
             // ThumbnailBox
             // 
-            this.ThumbnailBox.Location = new System.Drawing.Point(626, 114);
+            this.ThumbnailBox.Location = new System.Drawing.Point(626, 130);
             this.ThumbnailBox.Margin = new System.Windows.Forms.Padding(1);
             this.ThumbnailBox.Name = "ThumbnailBox";
             this.ThumbnailBox.Size = new System.Drawing.Size(201, 303);
@@ -345,7 +346,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(994, 506);
+            this.ClientSize = new System.Drawing.Size(994, 534);
             this.Controls.Add(this.ThumbnailBox);
             this.Controls.Add(this.RevenueBtn);
             this.Controls.Add(this.ReleaseBtn);

@@ -88,18 +88,42 @@ namespace MovieStore.MovieStoreViews
         {
          
             searchedmovies = new List<UserMovie>();
-
+            if(checkfilters(out var genrefilter))
+            {
+               
+            }
             if (SearchByMovieRdo.Checked)
             {
                 foreach (var movie in MovieSearch.GetMoviesByName(SearchBox.Text.ToString()))
-                {  
-                       searchedmovies.Add(new UserMovie(movie));
+                {
+                    if (genrefilter)
+                    {
+                        foreach( var g in movie.genre_ids)
+                        {
+                            
+                            foreach (Genres.Genre selecteditem in GenresListbox.CheckedItems)
+                            {
+                                int selectedGid = selecteditem.id;
+                                if(selectedGid == g)
+                                {
+                                    searchedmovies.Add(new UserMovie(movie));
+                                    break;
+                                }
+                            }
+                             
+                        }
+                    }
+                    else
+                    {
+                        searchedmovies.Add(new UserMovie(movie));
+                    }
+                       
                 }
 
             }
             else
             {
-                foreach (var movie in MovieSearch.GetMoviesByName(SearchBox.Text.ToString()))
+                foreach (var movie in MovieSearch.GetMoviesByActor(SearchBox.Text.ToString()))
                 {
                   
                     searchedmovies.Add(new UserMovie(movie));
@@ -114,7 +138,11 @@ namespace MovieStore.MovieStoreViews
         {
             DescriptionBox.Text = "";            
             UserMovie o= (UserMovie)MoviesList.Items[MoviesList.SelectedIndex];
-            ThumbnailBox.Load(MovieSearch.SetImageUrl(o.imageUrl, "medium"));
+            if(o.imageUrl!= null)
+            {
+                ThumbnailBox.Load(MovieSearch.SetImageUrl(o.imageUrl, "medium"));
+            }
+           
             DescriptionBox.Text =o.MovieDesc;
         }
 
@@ -162,6 +190,16 @@ namespace MovieStore.MovieStoreViews
                 searchedmovies.Add(new UserMovie(movie));
             }
             MoviesList.DataSource = searchedmovies;
+        }
+        public bool checkfilters(out bool genreFilter)
+        {
+            if(GenresListbox.CheckedItems.Count > 0)
+            {
+                genreFilter = true;
+                return true;
+            }
+            genreFilter = false;
+            return false;
         }
 
     }

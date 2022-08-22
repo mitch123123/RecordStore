@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -72,7 +73,18 @@ namespace MovieStore.Models
             public string iso_639_1 { get; set; }
             public string name { get; set; }
         }
-
+        public static Root GetMovieDetails(int MovieId)
+        {
+            using (var http = new HttpClient())
+            {
+                var endpoint = $"https://api.themoviedb.org/3/movie/{MovieId}?api_key=73321a7b17e84973837c579c8bb62fe7";
+                var result = http.GetAsync(endpoint).Result;
+                var json = result.Content.ReadAsStringAsync().Result;
+                var obj = JsonConvert.DeserializeObject<Root>(json);
+              
+                return obj;
+            }
+        }
 
     }
 }

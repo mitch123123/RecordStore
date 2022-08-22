@@ -31,6 +31,23 @@ namespace MovieStore.Models
             public bool video { get; set; }
             public double vote_average { get; set; }
             public int vote_count { get; set; }
+            public string GetPopularity(int poprating)
+            {
+              if(poprating > 0&& poprating < 50)
+                {
+                    return "lame";
+                }else if(poprating > 50 && poprating < 100)
+                {
+                    return "not bad";
+                }else if(poprating > 100 && poprating < 500)
+                {
+                    return "pretty popular";
+                }
+                else
+                {
+                    return "SUPER POPULAR";
+                }
+            }
         }
 
         public class Root
