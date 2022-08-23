@@ -17,6 +17,7 @@ namespace MovieStore.Classes
       
         public void GetTotal()
         {
+            CartTotal = 0;
             foreach(var movie in movies)
             {
                 CartTotal += movie.PurchasePrice;

@@ -1,4 +1,5 @@
 ﻿using homework9;
+using MovieStore.Classes;
 using MovieStore.Models;
 using System;
 using System.Collections.Generic;
@@ -33,6 +34,7 @@ namespace MovieStore.MovieStoreViews
         private async void CheckoutBtn_Click(object sender, EventArgs e)
         {
             var bank = new BankTransaction();
+            
             if(user.checkInventory(out var alreadyowned))
             {
                 errLbl.Text = $"you already own {alreadyowned}, please remove from cart and try again";
@@ -65,7 +67,21 @@ namespace MovieStore.MovieStoreViews
                         moviesadded += $",{movie.MovieTitle}";
                     }
                 }
-              
+                if(user.email!= null)
+                {
+                    string Sender = "mitchf2021@gmail.com";
+                    string Reciever =user.email;
+                    string subject = $"{user.Username} Recipt for {DateTime.Now}";
+                    string body = $"Thank you for your purchase {user.Username}, below is your purchase summary.<br>" +
+                        $"Items purchased:{c}  <br>" +
+                        $"Title Names: {moviesadded} <br>" +
+                        $"Total price: {totalLbl.Text} <br>" +
+                        $"have a great day,<br>" +
+                        $"MovieStore";
+                    var emailer = new Emailer(Sender,Reciever,subject,body);
+                    emailer.CreateMessage();
+                }
+               
                 user.usercart.movies.Clear();
                 user.usercart.CartTotal = 0;
                 new SuccessNotice(user,c, moviesadded).Show();

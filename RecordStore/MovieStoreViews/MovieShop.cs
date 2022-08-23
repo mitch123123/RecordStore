@@ -27,7 +27,7 @@ namespace MovieStore.MovieStoreViews
             DatePicker.Format = DateTimePickerFormat.Custom;
             DatePicker.CustomFormat = "yyyy";
             DatePicker.ShowUpDown = true;       
-            var genres = Genres.GetGenres();
+            var genres = Genres.GetMovieGenres();
             GenresListbox.DataSource = genres;
             GenresListbox.DisplayMember = "name";
             //foreach (var genre in Genres.GetGenres())

@@ -11,7 +11,7 @@ namespace MovieStore.Models
         public int? Age { get; set; }
         public string? Location { get; set; }
         public double AccountBalance { get; set; }
-      
+        public string? email { get; set; }
 
     }
 }

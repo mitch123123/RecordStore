@@ -31,7 +31,7 @@ namespace MovieStore.Models
             public bool video { get; set; }
             public double vote_average { get; set; }
             public int vote_count { get; set; }
-            public string GetPopularity(int poprating)
+            public static string GetPopularity(int poprating)
             {
               if(poprating > 0&& poprating < 50)
                 {

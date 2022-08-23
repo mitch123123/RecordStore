@@ -19,7 +19,7 @@ namespace MovieStore.Models
         {
             public List<Genre> genres { get; set; }
         }
-        public static List<Genre> GetGenres()
+        public static List<Genre> GetMovieGenres()
         {
             using (var http = new HttpClient())
             {
@@ -30,6 +30,17 @@ namespace MovieStore.Models
                 return obj.genres;
             }
         }
-        
+        public static List<Genre> GetTvGenres()
+        {
+            using (var http = new HttpClient())
+            {
+                var endpoint = "https://api.themoviedb.org/3/genre/tv/list?api_key=73321a7b17e84973837c579c8bb62fe7&language=en-US";
+                var result = http.GetAsync(endpoint).Result;
+                var json = result.Content.ReadAsStringAsync().Result;
+                var obj = JsonConvert.DeserializeObject<Root>(json);
+                return obj.genres;
+            }
+        }
+
     }
 }

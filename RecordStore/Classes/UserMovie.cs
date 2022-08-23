@@ -36,7 +36,7 @@ namespace MovieStore.Models
             }
             genre_ids = movie.genre_ids;
             string genreslist="Genres: ";
-            AllGenres = Genres.GetGenres();         
+            AllGenres = Genres.GetMovieGenres();         
             foreach (var genre in genre_ids){
                 var s = AllGenres.Find(x => x.id == genre);
                 genreslist += s.name+",";

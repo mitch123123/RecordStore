@@ -11,6 +11,8 @@ namespace MovieStore.Models
     {
         [NotMapped]
         public Cart? usercart { get; set; }
+        
+       
         public bool checkInventory(out string AlreadyOwned)
         {
             using (var context = new MovieDatabaseContext())

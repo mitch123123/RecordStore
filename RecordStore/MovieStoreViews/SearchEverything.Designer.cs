@@ -46,6 +46,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.SearchBtn = new System.Windows.Forms.Button();
             this.MoviesGroup = new System.Windows.Forms.GroupBox();
+            this.EstProfitLbl = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.TaglineLbl = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.StatusLbl = new System.Windows.Forms.Label();
@@ -87,13 +89,44 @@
             this.ActorPopularbar = new System.Windows.Forms.ProgressBar();
             this.label18 = new System.Windows.Forms.Label();
             this.PopularityActorLbl = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.EstProfitLbl = new System.Windows.Forms.Label();
+            this.TvBox = new System.Windows.Forms.GroupBox();
+            this.CreatedList = new System.Windows.Forms.ListBox();
+            this.SeasonsList = new System.Windows.Forms.ListBox();
+            this.SeasonImage = new System.Windows.Forms.PictureBox();
+            this.tvPoularityLbl = new System.Windows.Forms.Label();
+            this.label36 = new System.Windows.Forms.Label();
+            this.TvVoteLbll = new System.Windows.Forms.Label();
+            this.label32 = new System.Windows.Forms.Label();
+            this.TvratingLbl = new System.Windows.Forms.Label();
+            this.TvRatingbar = new System.Windows.Forms.ProgressBar();
+            this.label34 = new System.Windows.Forms.Label();
+            this.EpisodesLbl = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
+            this.TvWebsiteLBL = new System.Windows.Forms.LinkLabel();
+            this.label28 = new System.Windows.Forms.Label();
+            this.TVGenresList = new System.Windows.Forms.ListBox();
+            this.label27 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.EpisodeLengthLbl = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.FirstEpisodeLbl = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.SairdateLbl = new System.Windows.Forms.Label();
+            this.SepisodeCountLbl = new System.Windows.Forms.Label();
+            this.SoverviewLbl = new System.Windows.Forms.Label();
+            this.SeasonDetailGroup = new System.Windows.Forms.GroupBox();
+            this.label31 = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
+            this.label35 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.ThumbnailBox)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.MoviesGroup.SuspendLayout();
             this.ActorGroup.SuspendLayout();
+            this.TvBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.SeasonImage)).BeginInit();
+            this.SeasonDetailGroup.SuspendLayout();
             this.SuspendLayout();
             // 
             // ThumbnailBox
@@ -306,14 +339,33 @@
             this.MoviesGroup.Controls.Add(this.label7);
             this.MoviesGroup.Controls.Add(this.label6);
             this.MoviesGroup.Controls.Add(this.label3);
-            this.MoviesGroup.Location = new System.Drawing.Point(253, 151);
+            this.MoviesGroup.Location = new System.Drawing.Point(253, 149);
             this.MoviesGroup.Name = "MoviesGroup";
-            this.MoviesGroup.Size = new System.Drawing.Size(449, 277);
+            this.MoviesGroup.Size = new System.Drawing.Size(449, 267);
             this.MoviesGroup.TabIndex = 41;
             this.MoviesGroup.TabStop = false;
             this.MoviesGroup.Text = "Movie Details";
             this.MoviesGroup.UseCompatibleTextRendering = true;
             this.MoviesGroup.Visible = false;
+            // 
+            // EstProfitLbl
+            // 
+            this.EstProfitLbl.AutoSize = true;
+            this.EstProfitLbl.Location = new System.Drawing.Point(132, 123);
+            this.EstProfitLbl.Name = "EstProfitLbl";
+            this.EstProfitLbl.Size = new System.Drawing.Size(44, 15);
+            this.EstProfitLbl.TabIndex = 39;
+            this.EstProfitLbl.Text = "label20";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point);
+            this.label2.Location = new System.Drawing.Point(132, 104);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(58, 15);
+            this.label2.TabIndex = 38;
+            this.label2.Text = "Est Profit";
             // 
             // TaglineLbl
             // 
@@ -519,7 +571,6 @@
             this.label6.Size = new System.Drawing.Size(47, 15);
             this.label6.TabIndex = 1;
             this.label6.Text = "Genres";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // label3
             // 
@@ -550,9 +601,9 @@
             this.ActorGroup.Controls.Add(this.ActorPopularbar);
             this.ActorGroup.Controls.Add(this.label18);
             this.ActorGroup.Controls.Add(this.PopularityActorLbl);
-            this.ActorGroup.Location = new System.Drawing.Point(253, 434);
+            this.ActorGroup.Location = new System.Drawing.Point(253, 151);
             this.ActorGroup.Name = "ActorGroup";
-            this.ActorGroup.Size = new System.Drawing.Size(458, 281);
+            this.ActorGroup.Size = new System.Drawing.Size(458, 265);
             this.ActorGroup.TabIndex = 42;
             this.ActorGroup.TabStop = false;
             this.ActorGroup.Text = "Actor Details";
@@ -681,7 +732,6 @@
             this.BirthdayLbl.Size = new System.Drawing.Size(44, 15);
             this.BirthdayLbl.TabIndex = 1;
             this.BirthdayLbl.Text = "label11";
-            this.BirthdayLbl.Click += new System.EventHandler(this.BirthdayLbl_Click);
             // 
             // label10
             // 
@@ -719,30 +769,322 @@
             this.PopularityActorLbl.TabIndex = 17;
             this.PopularityActorLbl.Text = "label8";
             // 
-            // label2
+            // TvBox
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(135, 101);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(58, 15);
-            this.label2.TabIndex = 38;
-            this.label2.Text = "Est Profit";
+            this.TvBox.Controls.Add(this.CreatedList);
+            this.TvBox.Controls.Add(this.SeasonsList);
+            this.TvBox.Controls.Add(this.SeasonImage);
+            this.TvBox.Controls.Add(this.tvPoularityLbl);
+            this.TvBox.Controls.Add(this.label36);
+            this.TvBox.Controls.Add(this.TvVoteLbll);
+            this.TvBox.Controls.Add(this.label32);
+            this.TvBox.Controls.Add(this.TvratingLbl);
+            this.TvBox.Controls.Add(this.TvRatingbar);
+            this.TvBox.Controls.Add(this.label34);
+            this.TvBox.Controls.Add(this.EpisodesLbl);
+            this.TvBox.Controls.Add(this.label30);
+            this.TvBox.Controls.Add(this.label29);
+            this.TvBox.Controls.Add(this.TvWebsiteLBL);
+            this.TvBox.Controls.Add(this.label28);
+            this.TvBox.Controls.Add(this.TVGenresList);
+            this.TvBox.Controls.Add(this.label27);
+            this.TvBox.Controls.Add(this.label26);
+            this.TvBox.Controls.Add(this.EpisodeLengthLbl);
+            this.TvBox.Controls.Add(this.label25);
+            this.TvBox.Controls.Add(this.FirstEpisodeLbl);
+            this.TvBox.Controls.Add(this.label20);
+            this.TvBox.Location = new System.Drawing.Point(253, 163);
+            this.TvBox.Name = "TvBox";
+            this.TvBox.Size = new System.Drawing.Size(454, 262);
+            this.TvBox.TabIndex = 43;
+            this.TvBox.TabStop = false;
+            this.TvBox.Text = "Show Details";
             // 
-            // EstProfitLbl
+            // CreatedList
             // 
-            this.EstProfitLbl.AutoSize = true;
-            this.EstProfitLbl.Location = new System.Drawing.Point(138, 123);
-            this.EstProfitLbl.Name = "EstProfitLbl";
-            this.EstProfitLbl.Size = new System.Drawing.Size(44, 15);
-            this.EstProfitLbl.TabIndex = 39;
-            this.EstProfitLbl.Text = "label20";
+            this.CreatedList.FormattingEnabled = true;
+            this.CreatedList.ItemHeight = 15;
+            this.CreatedList.Location = new System.Drawing.Point(132, 34);
+            this.CreatedList.Name = "CreatedList";
+            this.CreatedList.Size = new System.Drawing.Size(120, 49);
+            this.CreatedList.TabIndex = 23;
+            this.CreatedList.SelectedIndexChanged += new System.EventHandler(this.CreatedList_SelectedIndexChanged);
+            this.CreatedList.Format += new System.Windows.Forms.ListControlConvertEventHandler(this.CreatedList_Format);
+            // 
+            // SeasonsList
+            // 
+            this.SeasonsList.FormattingEnabled = true;
+            this.SeasonsList.ItemHeight = 15;
+            this.SeasonsList.Location = new System.Drawing.Point(132, 143);
+            this.SeasonsList.Name = "SeasonsList";
+            this.SeasonsList.Size = new System.Drawing.Size(140, 94);
+            this.SeasonsList.TabIndex = 22;
+            this.SeasonsList.SelectedIndexChanged += new System.EventHandler(this.SeasonsList_SelectedIndexChanged);
+            this.SeasonsList.Format += new System.Windows.Forms.ListControlConvertEventHandler(this.SeasonsList_Format);
+            // 
+            // SeasonImage
+            // 
+            this.SeasonImage.Location = new System.Drawing.Point(287, 132);
+            this.SeasonImage.Name = "SeasonImage";
+            this.SeasonImage.Size = new System.Drawing.Size(136, 112);
+            this.SeasonImage.TabIndex = 21;
+            this.SeasonImage.TabStop = false;
+            // 
+            // tvPoularityLbl
+            // 
+            this.tvPoularityLbl.AutoSize = true;
+            this.tvPoularityLbl.Location = new System.Drawing.Point(10, 121);
+            this.tvPoularityLbl.Name = "tvPoularityLbl";
+            this.tvPoularityLbl.Size = new System.Drawing.Size(38, 15);
+            this.tvPoularityLbl.TabIndex = 20;
+            this.tvPoularityLbl.Text = "label8";
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Font = new System.Drawing.Font("Segoe UI", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point);
+            this.label36.Location = new System.Drawing.Point(9, 101);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(66, 15);
+            this.label36.TabIndex = 19;
+            this.label36.Text = "Popularity:";
+            // 
+            // TvVoteLbll
+            // 
+            this.TvVoteLbll.AutoSize = true;
+            this.TvVoteLbll.Location = new System.Drawing.Point(11, 200);
+            this.TvVoteLbll.Name = "TvVoteLbll";
+            this.TvVoteLbll.Size = new System.Drawing.Size(44, 15);
+            this.TvVoteLbll.TabIndex = 18;
+            this.TvVoteLbll.Text = "label10";
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Font = new System.Drawing.Font("Segoe UI", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point);
+            this.label32.Location = new System.Drawing.Point(10, 184);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(41, 15);
+            this.label32.TabIndex = 17;
+            this.label32.Text = "Votes:";
+            // 
+            // TvratingLbl
+            // 
+            this.TvratingLbl.AutoSize = true;
+            this.TvratingLbl.Location = new System.Drawing.Point(55, 136);
+            this.TvratingLbl.Name = "TvratingLbl";
+            this.TvratingLbl.Size = new System.Drawing.Size(38, 15);
+            this.TvratingLbl.TabIndex = 16;
+            this.TvratingLbl.Text = "label9";
+            // 
+            // TvRatingbar
+            // 
+            this.TvRatingbar.Location = new System.Drawing.Point(10, 154);
+            this.TvRatingbar.Name = "TvRatingbar";
+            this.TvRatingbar.Size = new System.Drawing.Size(100, 18);
+            this.TvRatingbar.TabIndex = 15;
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Font = new System.Drawing.Font("Segoe UI", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point);
+            this.label34.Location = new System.Drawing.Point(9, 136);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(46, 15);
+            this.label34.TabIndex = 14;
+            this.label34.Text = "Rating:";
+            // 
+            // EpisodesLbl
+            // 
+            this.EpisodesLbl.AutoSize = true;
+            this.EpisodesLbl.Location = new System.Drawing.Point(131, 106);
+            this.EpisodesLbl.Name = "EpisodesLbl";
+            this.EpisodesLbl.Size = new System.Drawing.Size(44, 15);
+            this.EpisodesLbl.TabIndex = 13;
+            this.EpisodesLbl.Text = "label31";
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Font = new System.Drawing.Font("Segoe UI", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point);
+            this.label30.Location = new System.Drawing.Point(131, 86);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(119, 15);
+            this.label30.TabIndex = 12;
+            this.label30.Text = "Number of episodes";
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Font = new System.Drawing.Font("Segoe UI", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point);
+            this.label29.Location = new System.Drawing.Point(132, 125);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(51, 15);
+            this.label29.TabIndex = 10;
+            this.label29.Text = "Seasons";
+            // 
+            // TvWebsiteLBL
+            // 
+            this.TvWebsiteLBL.AutoSize = true;
+            this.TvWebsiteLBL.Location = new System.Drawing.Point(5, 244);
+            this.TvWebsiteLBL.Name = "TvWebsiteLBL";
+            this.TvWebsiteLBL.Size = new System.Drawing.Size(0, 15);
+            this.TvWebsiteLBL.TabIndex = 9;
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Font = new System.Drawing.Font("Segoe UI", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point);
+            this.label28.Location = new System.Drawing.Point(11, 220);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(56, 15);
+            this.label28.TabIndex = 8;
+            this.label28.Text = "Website:";
+            // 
+            // TVGenresList
+            // 
+            this.TVGenresList.FormattingEnabled = true;
+            this.TVGenresList.ItemHeight = 15;
+            this.TVGenresList.Location = new System.Drawing.Point(286, 32);
+            this.TVGenresList.Name = "TVGenresList";
+            this.TVGenresList.Size = new System.Drawing.Size(154, 94);
+            this.TVGenresList.TabIndex = 7;
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Font = new System.Drawing.Font("Segoe UI", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point);
+            this.label27.Location = new System.Drawing.Point(287, 14);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(47, 15);
+            this.label27.TabIndex = 6;
+            this.label27.Text = "Genres";
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Font = new System.Drawing.Font("Segoe UI", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point);
+            this.label26.Location = new System.Drawing.Point(131, 19);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(68, 15);
+            this.label26.TabIndex = 4;
+            this.label26.Text = "Created By";
+            // 
+            // EpisodeLengthLbl
+            // 
+            this.EpisodeLengthLbl.AutoSize = true;
+            this.EpisodeLengthLbl.Location = new System.Drawing.Point(10, 86);
+            this.EpisodeLengthLbl.Name = "EpisodeLengthLbl";
+            this.EpisodeLengthLbl.Size = new System.Drawing.Size(44, 15);
+            this.EpisodeLengthLbl.TabIndex = 3;
+            this.EpisodeLengthLbl.Text = "label26";
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Font = new System.Drawing.Font("Segoe UI", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point);
+            this.label25.Location = new System.Drawing.Point(9, 66);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(91, 15);
+            this.label25.TabIndex = 2;
+            this.label25.Text = "Episode Length";
+            // 
+            // FirstEpisodeLbl
+            // 
+            this.FirstEpisodeLbl.AutoSize = true;
+            this.FirstEpisodeLbl.Location = new System.Drawing.Point(9, 43);
+            this.FirstEpisodeLbl.Name = "FirstEpisodeLbl";
+            this.FirstEpisodeLbl.Size = new System.Drawing.Size(44, 15);
+            this.FirstEpisodeLbl.TabIndex = 1;
+            this.FirstEpisodeLbl.Text = "label25";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Segoe UI", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point);
+            this.label20.Location = new System.Drawing.Point(8, 23);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(106, 15);
+            this.label20.TabIndex = 0;
+            this.label20.Text = "First Episode Date";
+            // 
+            // SairdateLbl
+            // 
+            this.SairdateLbl.AutoSize = true;
+            this.SairdateLbl.Location = new System.Drawing.Point(63, 19);
+            this.SairdateLbl.Name = "SairdateLbl";
+            this.SairdateLbl.Size = new System.Drawing.Size(47, 15);
+            this.SairdateLbl.TabIndex = 44;
+            this.SairdateLbl.Text = "label33";
+            // 
+            // SepisodeCountLbl
+            // 
+            this.SepisodeCountLbl.AutoSize = true;
+            this.SepisodeCountLbl.Location = new System.Drawing.Point(63, 46);
+            this.SepisodeCountLbl.Name = "SepisodeCountLbl";
+            this.SepisodeCountLbl.Size = new System.Drawing.Size(47, 15);
+            this.SepisodeCountLbl.TabIndex = 45;
+            this.SepisodeCountLbl.Text = "label33";
+            // 
+            // SoverviewLbl
+            // 
+            this.SoverviewLbl.AutoSize = true;
+            this.SoverviewLbl.Location = new System.Drawing.Point(13, 91);
+            this.SoverviewLbl.Name = "SoverviewLbl";
+            this.SoverviewLbl.Size = new System.Drawing.Size(47, 15);
+            this.SoverviewLbl.TabIndex = 46;
+            this.SoverviewLbl.Text = "label33";
+            // 
+            // SeasonDetailGroup
+            // 
+            this.SeasonDetailGroup.Controls.Add(this.label35);
+            this.SeasonDetailGroup.Controls.Add(this.label33);
+            this.SeasonDetailGroup.Controls.Add(this.label31);
+            this.SeasonDetailGroup.Controls.Add(this.SoverviewLbl);
+            this.SeasonDetailGroup.Controls.Add(this.SairdateLbl);
+            this.SeasonDetailGroup.Controls.Add(this.SepisodeCountLbl);
+            this.SeasonDetailGroup.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.SeasonDetailGroup.Location = new System.Drawing.Point(539, 599);
+            this.SeasonDetailGroup.Name = "SeasonDetailGroup";
+            this.SeasonDetailGroup.Size = new System.Drawing.Size(504, 136);
+            this.SeasonDetailGroup.TabIndex = 47;
+            this.SeasonDetailGroup.TabStop = false;
+            this.SeasonDetailGroup.Text = "Season Details";
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(7, 19);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(53, 15);
+            this.label31.TabIndex = 47;
+            this.label31.Text = "AirDate:";
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Location = new System.Drawing.Point(7, 46);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(57, 15);
+            this.label33.TabIndex = 48;
+            this.label33.Text = "Episodes:";
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Location = new System.Drawing.Point(7, 76);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(104, 15);
+            this.label35.TabIndex = 49;
+            this.label35.Text = "Season Overview";
             // 
             // SearchEverything
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1112, 745);
+            this.Controls.Add(this.TvBox);
+            this.Controls.Add(this.SeasonDetailGroup);
             this.Controls.Add(this.ActorGroup);
             this.Controls.Add(this.MoviesGroup);
             this.Controls.Add(this.ThumbnailBox);
@@ -766,6 +1108,11 @@
             this.MoviesGroup.PerformLayout();
             this.ActorGroup.ResumeLayout(false);
             this.ActorGroup.PerformLayout();
+            this.TvBox.ResumeLayout(false);
+            this.TvBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.SeasonImage)).EndInit();
+            this.SeasonDetailGroup.ResumeLayout(false);
+            this.SeasonDetailGroup.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -834,5 +1181,35 @@
         private Label label17;
         private Label EstProfitLbl;
         private Label label2;
+        private GroupBox TvBox;
+        private Label EpisodeLengthLbl;
+        private Label label25;
+        private Label FirstEpisodeLbl;
+        private Label label20;
+        private ListBox SeasonsList;
+        private PictureBox SeasonImage;
+        private Label tvPoularityLbl;
+        private Label label36;
+        private Label TvVoteLbll;
+        private Label label32;
+        private Label TvratingLbl;
+        private ProgressBar TvRatingbar;
+        private Label label34;
+        private Label EpisodesLbl;
+        private Label label30;
+        private Label label29;
+        private LinkLabel TvWebsiteLBL;
+        private Label label28;
+        private ListBox TVGenresList;
+        private Label label27;
+        private Label label26;
+        private ListBox CreatedList;
+        private Label SairdateLbl;
+        private Label SepisodeCountLbl;
+        private Label SoverviewLbl;
+        private GroupBox SeasonDetailGroup;
+        private Label label35;
+        private Label label33;
+        private Label label31;
     }
 }
