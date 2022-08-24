@@ -74,16 +74,24 @@ namespace MovieStore.Classes
 
         public async Task  CreateMessage()
         {
-            MailMessage mail = new MailMessage(PrivateData.sender, Receiver, Subject,Body);
-            mail.IsBodyHtml = true; 
-            using (SmtpClient client = new SmtpClient("smtp-mail.outlook.com", 587))
+            if(PrivateData.sender!="" && PrivateData.password != "")
             {
-                client.EnableSsl = true;
-                client.DeliveryMethod = SmtpDeliveryMethod.Network;
-                client.UseDefaultCredentials = false;
-                client.Credentials = new System.Net.NetworkCredential(PrivateData.sender, PrivateData.password);
-                await client.SendMailAsync(mail);
+                MailMessage mail = new MailMessage(PrivateData.sender, Receiver, Subject, Body);
+                mail.IsBodyHtml = true;
+                using (SmtpClient client = new SmtpClient("smtp-mail.outlook.com", 587))
+                {
+                    client.EnableSsl = true;
+                    client.DeliveryMethod = SmtpDeliveryMethod.Network;
+                    client.UseDefaultCredentials = false;
+                    client.Credentials = new System.Net.NetworkCredential(PrivateData.sender, PrivateData.password);
+                    await client.SendMailAsync(mail);
+                }
             }
+            else
+            {
+                Console.WriteLine("need to fill out private data variables");
+            }
+           
         }
         
 
