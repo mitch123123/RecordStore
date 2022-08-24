@@ -87,8 +87,11 @@ namespace MovieStore.Models
             }) ;
             modelBuilder.Entity<UserMovie>(entity =>
             {
-                entity.HasKey(e => e.MovieTitle)
-                    .HasName("PK__UserMovi__1788CC4C57EE41B8");
+                entity.HasKey(u => new
+            {
+                u.UserId,u.MovieTitle
+
+            }) ;
 
                 entity.Property(e => e.UserId).ValueGeneratedNever();
 
