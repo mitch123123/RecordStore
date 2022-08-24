@@ -37,7 +37,10 @@ namespace MovieStore.Classes
             {
                 var p = new UserPromos();
                 p = null;
-                foreach (var promo in context.Promocodes)
+                var querypromos = from pc in context.Promocodes
+                                  select new { pc.PromoId, pc.PromoName, pc.PromoValue, pc.promoRequirement };
+
+                foreach (var promo in querypromos)
                 {
                     if (user.usercart.CartTotal > promo.promoRequirement)
                     {
@@ -45,6 +48,7 @@ namespace MovieStore.Classes
 
                     }
                 }
+
                 
               
                 if (condition != null)
