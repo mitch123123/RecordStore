@@ -1,5 +1,8 @@
 # RecordStore
+you have to replace email username and password in privatedataclass with an outlook/ hotmail account
+
 sqls for local databases:
+
 CREATE TABLE [dbo].[Bank] (
     [UserId]                 UNIQUEIDENTIFIER NOT NULL,
     [NewWalletAmount]        FLOAT (53)       NOT NULL,
