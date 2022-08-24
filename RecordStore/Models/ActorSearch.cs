@@ -59,7 +59,12 @@ namespace MovieStore.Models
                 var result = http.GetAsync(endpoint).Result;
                 var json = result.Content.ReadAsStringAsync().Result;
                 var obj = JsonConvert.DeserializeObject<Root>(json);
-                var actor= obj.results.First();
+                var actor = new Result();
+                if (obj.results.Count > 0)
+                {
+                    actor = obj.results.First();
+                }
+               
                 return actor;
             }
         }
@@ -71,6 +76,7 @@ namespace MovieStore.Models
                 var result = http.GetAsync(endpoint).Result;
                 var json = result.Content.ReadAsStringAsync().Result;
                 var obj = JsonConvert.DeserializeObject<Root>(json);
+
                 return obj.results;
                 
             }

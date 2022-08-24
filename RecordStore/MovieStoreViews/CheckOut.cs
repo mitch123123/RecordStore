@@ -53,13 +53,20 @@ namespace MovieStore.MovieStoreViews
                     string moviesadded = user.usercart.movies[0].MovieTitle;
                     if (c > 1)
                     {
-                        foreach (var movie in user.usercart.movies)
+                        
+                        for(int i = 1; i < user.usercart.movies.Count; i++)
                         {
-                            moviesadded += $",{movie.MovieTitle}";
-                            user.AddMovie(movie);
+                            var movie = user.usercart.movies[i].MovieTitle;
+                            moviesadded += $" , {movie}";
                         }
+                        //moviesadded = "";
+                        //foreach (var movie in user.usercart.movies)
+                        //{
+                        //    moviesadded += $",{movie.MovieTitle}";
+                        //    user.AddMovie(movie);
+                        //}
                     }
-                    bank.CreateTransaction(user, $"purchase of {moviesadded}", user.usercart.CartTotal);
+                    bank.CreateTransaction(user, $"Purchase of {moviesadded}", user.usercart.CartTotal);
                     if (!await bank.LogTransaction())
                     {
                         errLbl.ForeColor = Color.Red;

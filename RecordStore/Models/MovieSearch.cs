@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using Windows.Storage.Streams;
 using Windows.UI.Xaml.Media.Imaging;
 
+using MovieStore.Classes;
 
 namespace MovieStore.Models
 {
@@ -57,8 +58,8 @@ namespace MovieStore.Models
             public int total_pages { get; set; }
             public int total_results { get; set; }
         }
-        [NotMapped]
-        public const string ApiKey = "73321a7b17e84973837c579c8bb62fe7";
+
+        private const string ApiKey = PrivateData.ApiKey;
         [NotMapped]
         public const string PopularEndpoint = $"https://api.themoviedb.org/3/discover/movie?api_key={ApiKey}&language=en-US&sort_by=popularity.desc";
         [NotMapped]
