@@ -16,13 +16,17 @@ namespace MovieStore.MovieStoreViews
     public partial class CheckOut : Form
     {
         public UserDatum user { get; set; }
+        private int Promocount { get; set; }
+        private UserPromos activePromo { get; set; }
         public CheckOut(UserDatum curuser)
         {
             InitializeComponent();
+            Promocount = 0;
             user = curuser;           
             UserBalanceLbl.Text = $"{user.Username}'s account balance:{user.AccountBalance.ToString("c2")}";
             writetotals();
             CartItemList.DataSource = user.usercart.movies;
+            PromoBox.DataSource = UserPromos.GetUserPromos(user);   
         }
 
         private void CancelBtn_Click(object sender, EventArgs e)
@@ -41,52 +45,43 @@ namespace MovieStore.MovieStoreViews
             }
             else
             {
-                foreach (var item in user.usercart.movies)
+
+                if (errLbl.Text == "")
                 {
-                    bank.CreateTransaction(user, $"purchase of {item.MovieTitle}", item.PurchasePrice);
+                    var c = user.usercart.movies.Count;
+                    string moviesadded = user.usercart.movies[0].MovieTitle;
+                    if (c > 1)
+                    {
+                        foreach (var movie in user.usercart.movies)
+                        {
+                            moviesadded += $",{movie.MovieTitle}";
+                            user.AddMovie(movie);
+                        }
+                    }
+                    bank.CreateTransaction(user, $"purchase of {moviesadded}", user.usercart.CartTotal);
                     if (!await bank.LogTransaction())
                     {
                         errLbl.ForeColor = Color.Red;
                         errLbl.Text = "transaction failed";
-                        break;
+
 
                     }
-                    user.AddMovie(item);
-
-                }
-            }
-            
-            if (errLbl.Text == "")
-            {
-                var c = user.usercart.movies.Count;
-                string moviesadded= user.usercart.movies[0].MovieTitle;
-                if(c > 1)
-                {
-                    foreach (var movie in user.usercart.movies)
+                    else
                     {
-                        moviesadded += $",{movie.MovieTitle}";
+                       
+                        UserPromos.RemovePromo(user, activePromo);
+                        UserPromos.CheckForPromosAvailable(user, null, out var newpromo);
+                        Emailer.CreateReciptEmail(user, moviesadded, c, totalLbl.Text,newpromo);
+                        user.usercart.movies.Clear();
+                        user.usercart.CartTotal = 0;
+                        new SuccessNotice(user, c, moviesadded).Show();
+                        this.Hide();
                     }
+
                 }
-                if(user.email!= null)
-                {
-                    string Sender = "mitchf2021@gmail.com";
-                    string Reciever =user.email;
-                    string subject = $"{user.Username} Recipt for {DateTime.Now}";
-                    string body = $"Thank you for your purchase {user.Username}, below is your purchase summary.<br>" +
-                        $"Items purchased:{c}  <br>" +
-                        $"Title Names: {moviesadded} <br>" +
-                        $"Total price: {totalLbl.Text} <br>" +
-                        $"have a great day,<br>" +
-                        $"MovieStore";
-                    var emailer = new Emailer(Sender,Reciever,subject,body);
-                    emailer.CreateMessage();
-                }
-               
-                user.usercart.movies.Clear();
-                user.usercart.CartTotal = 0;
-                new SuccessNotice(user,c, moviesadded).Show();
-                this.Hide();
             }
+
+            
         }
 
         private void CartItemList_Format(object sender, ListControlConvertEventArgs e)
@@ -110,6 +105,40 @@ namespace MovieStore.MovieStoreViews
             float total = (float)(taxamount + user.usercart.CartTotal);
             taxLbl.Text = taxamount.ToString("c2");
             totalLbl.Text = total.ToString("c2");
+        }
+        public void recalculate()
+        {
+            subtotalLbl.Text = user.usercart.CartTotal.ToString("c2");
+            float taxamount = (float)(user.usercart.CartTotal * .06);
+            float total = (float)(taxamount + user.usercart.CartTotal);
+            taxLbl.Text = taxamount.ToString("c2");
+            totalLbl.Text = total.ToString("c2");
+        }
+
+        private void PromoBtn_Click(object sender, EventArgs e)
+        {
+            if (Promocount == 1)
+            {
+                errLbl.Text = $"promo {activePromo.Promoname} has already been applied, only one promo per transaction";
+            }
+            else
+            {
+                Promocount++;
+                activePromo = (UserPromos)PromoBox.Items[PromoBox.SelectedIndex];
+                //discount total
+                user.usercart.CartTotal = user.usercart.CartTotal - (user.usercart.CartTotal * activePromo.PromoValue);
+                //remove promo
+               
+                recalculate();
+            }
+          
+        }
+
+        private void PromoBox_Format(object sender, ListControlConvertEventArgs e)
+        {
+            string promoname = ((UserPromos)e.ListItem).Promoname.ToString();
+          
+            e.Value = $"{promoname} ";
         }
     }
 }

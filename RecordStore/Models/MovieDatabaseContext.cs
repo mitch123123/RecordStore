@@ -20,6 +20,8 @@ namespace MovieStore.Models
         public virtual DbSet<BankTransaction> Banks { get; set; } = null!;
         public virtual DbSet<UserDatum> UserData { get; set; } = null!;
         public virtual DbSet<UserMovie> UserMovies { get; set; } = null!;
+        public virtual DbSet<Promocodes> Promocodes { get; set; } = null!;
+        public virtual DbSet<UserPromos> UserPromos { get; set; } = null!;  
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -73,7 +75,16 @@ namespace MovieStore.Models
                     .IsUnicode(false);
                // entity.Property(e => e.AccountBalance).con
             });
-          
+            modelBuilder.Entity<UserPromos>().HasKey(u => new
+            {
+                u.promoid,
+                u.userId
+            });
+            modelBuilder.Entity<Promocodes>().HasKey(u => new
+            {
+                u.PromoId
+
+            }) ;
             modelBuilder.Entity<UserMovie>(entity =>
             {
                 entity.HasKey(e => e.MovieTitle)

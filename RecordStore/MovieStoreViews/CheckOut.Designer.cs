@@ -41,6 +41,9 @@
             this.errLbl = new System.Windows.Forms.Label();
             this.RemoveBtn = new System.Windows.Forms.Button();
             this.UserBalanceLbl = new System.Windows.Forms.Label();
+            this.PromoBtn = new System.Windows.Forms.Button();
+            this.PromoBox = new System.Windows.Forms.ListBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // CheckoutBtn
@@ -160,7 +163,7 @@
             // 
             // RemoveBtn
             // 
-            this.RemoveBtn.Location = new System.Drawing.Point(295, 252);
+            this.RemoveBtn.Location = new System.Drawing.Point(95, 271);
             this.RemoveBtn.Margin = new System.Windows.Forms.Padding(1);
             this.RemoveBtn.Name = "RemoveBtn";
             this.RemoveBtn.Size = new System.Drawing.Size(77, 24);
@@ -180,11 +183,44 @@
             this.UserBalanceLbl.TabIndex = 12;
             this.UserBalanceLbl.Text = "label5";
             // 
+            // PromoBtn
+            // 
+            this.PromoBtn.Location = new System.Drawing.Point(253, 361);
+            this.PromoBtn.Name = "PromoBtn";
+            this.PromoBtn.Size = new System.Drawing.Size(92, 23);
+            this.PromoBtn.TabIndex = 14;
+            this.PromoBtn.Text = "Apply Promo";
+            this.PromoBtn.UseVisualStyleBackColor = true;
+            this.PromoBtn.Click += new System.EventHandler(this.PromoBtn_Click);
+            // 
+            // PromoBox
+            // 
+            this.PromoBox.FormattingEnabled = true;
+            this.PromoBox.ItemHeight = 15;
+            this.PromoBox.Location = new System.Drawing.Point(252, 261);
+            this.PromoBox.Name = "PromoBox";
+            this.PromoBox.Size = new System.Drawing.Size(120, 94);
+            this.PromoBox.TabIndex = 15;
+            this.PromoBox.Format += new System.Windows.Forms.ListControlConvertEventHandler(this.PromoBox_Format);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point);
+            this.label5.Location = new System.Drawing.Point(253, 243);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(102, 15);
+            this.label5.TabIndex = 16;
+            this.label5.Text = "Available Promos";
+            // 
             // CheckOut
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(407, 343);
+            this.ClientSize = new System.Drawing.Size(397, 406);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.PromoBox);
+            this.Controls.Add(this.PromoBtn);
             this.Controls.Add(this.UserBalanceLbl);
             this.Controls.Add(this.RemoveBtn);
             this.Controls.Add(this.errLbl);
@@ -221,5 +257,8 @@
         private Label errLbl;
         private Button RemoveBtn;
         private Label UserBalanceLbl;
+        private Button PromoBtn;
+        private ListBox PromoBox;
+        private Label label5;
     }
 }

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using homework9.Models;
+using MovieStore.Classes;
 using MovieStore.Models;
 
 namespace homework9
@@ -32,7 +33,9 @@ namespace homework9
             user.UserId = Guid.NewGuid();
             user.Username = UserNameBox.Text;
             user.Password = PasswordBox.Text;
+            user.email = EmailBox.Text;
             user.AccountBalance = 500.00F;
+
             if(!user.getage(AgeBox.Text,out error))
             {
                 ErrorLbl.ForeColor = Color.Red;
@@ -45,6 +48,12 @@ namespace homework9
                 {
                     ErrorLbl.ForeColor = Color.Green;
                     ErrorLbl.Text = "profile created succesfully";
+                    UserPromos.CheckForPromosAvailable(user, "newuser");
+                    if (user.email != null)
+                    {
+                        Emailer.CreateSignupEmail(user);
+                    }
+                   
                     Thread.Sleep(1000);
                     new UserMenu(user).Show();
                     this.Hide();
