@@ -48,7 +48,7 @@ namespace homework9
                 {
                     ErrorLbl.ForeColor = Color.Green;
                     ErrorLbl.Text = "profile created succesfully";
-                    UserPromos.CheckForPromosAvailable(user, "newuser");
+                    UserPromos.CheckForPromosAvailable(user, "newuser",out var newpromo);
                     if (user.email != null)
                     {
                         Emailer.CreateSignupEmail(user);

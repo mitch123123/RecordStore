@@ -22,6 +22,7 @@ namespace MovieStore.MovieStoreViews
         {
             InitializeComponent();
             Promocount = 0;
+            activePromo = null;
             user = curuser;           
             UserBalanceLbl.Text = $"{user.Username}'s account balance:{user.AccountBalance.ToString("c2")}";
             writetotals();
@@ -68,8 +69,11 @@ namespace MovieStore.MovieStoreViews
                     }
                     else
                     {
+                        if (activePromo != null)
+                        {
+                            UserPromos.RemovePromo(user, activePromo);
+                        }
                        
-                        UserPromos.RemovePromo(user, activePromo);
                         UserPromos.CheckForPromosAvailable(user, null, out var newpromo);
                         Emailer.CreateReciptEmail(user, moviesadded, c, totalLbl.Text,newpromo);
                         user.usercart.movies.Clear();

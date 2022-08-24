@@ -75,6 +75,9 @@ namespace MovieStore.Classes
              
             }
         }
+  
+
+      
         public static void GivePromo(UserPromos promo,out UserPromos newpromo)
         {
             //check if promo exists first, then give promo to user

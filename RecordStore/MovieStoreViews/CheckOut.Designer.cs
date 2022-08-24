@@ -112,7 +112,7 @@
             // 
             // CancelBtn
             // 
-            this.CancelBtn.Location = new System.Drawing.Point(95, 300);
+            this.CancelBtn.Location = new System.Drawing.Point(134, 272);
             this.CancelBtn.Margin = new System.Windows.Forms.Padding(1);
             this.CancelBtn.Name = "CancelBtn";
             this.CancelBtn.Size = new System.Drawing.Size(77, 21);
@@ -155,7 +155,7 @@
             // 
             this.errLbl.AutoSize = true;
             this.errLbl.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.errLbl.Location = new System.Drawing.Point(180, 301);
+            this.errLbl.Location = new System.Drawing.Point(10, 382);
             this.errLbl.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.errLbl.Name = "errLbl";
             this.errLbl.Size = new System.Drawing.Size(0, 15);
@@ -163,7 +163,7 @@
             // 
             // RemoveBtn
             // 
-            this.RemoveBtn.Location = new System.Drawing.Point(95, 271);
+            this.RemoveBtn.Location = new System.Drawing.Point(134, 243);
             this.RemoveBtn.Margin = new System.Windows.Forms.Padding(1);
             this.RemoveBtn.Name = "RemoveBtn";
             this.RemoveBtn.Size = new System.Drawing.Size(77, 24);
