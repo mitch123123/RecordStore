@@ -42,6 +42,11 @@ CREATE TABLE [dbo].[PromoCodes] (
     [PromoRequirement] INT           NULL,
     PRIMARY KEY CLUSTERED ([PromoId] ASC)
 );
+INSERT INTO [dbo].[PromoCodes] ([PromoId], [PromoName], [PromoDesc], [PromoValue], [PromoRequirement]) VALUES (1, N'NewUser50', N'50% new user discount', 0.5, 9999)
+INSERT INTO [dbo].[PromoCodes] ([PromoId], [PromoName], [PromoDesc], [PromoValue], [PromoRequirement]) VALUES (2, N'Save25', N'25% discount after qualifying purchase(purchase over 50 dollars)', 0.25, 50)
+INSERT INTO [dbo].[PromoCodes] ([PromoId], [PromoName], [PromoDesc], [PromoValue], [PromoRequirement]) VALUES (3, N'10off', N'10% discount after qualifying purchase(purchase over 20 dollars)', 0.1, 20)
+
+
 CREATE TABLE [dbo].[UserPromos] (
     [PromoId]    INT              NOT NULL,
     [UserId]     UNIQUEIDENTIFIER NOT NULL,
